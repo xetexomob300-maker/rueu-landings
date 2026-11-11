@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>Ocularix® — единственный официальный сайт производителя | Закажите оригинал</title>
+<meta name="description" content="Единственный официальный сайт Ocularix®. Оригинальный продукт напрямую от производителя, оплата при получении, доставка по всей стране.">
+<style>
+:root{
+  --accent:#1f6feb; --accent-dark:#0d47a1;
+  --ink:#0f1b2d; --muted:#5b6b80; --line:#e6ebf2;
+  --bg:#fff; --bg-soft:#f5f8fc; --bg-soft2:#eef4fb;
+  --ok:#12a150; --ok-bg:#e8f7ee; --danger:#e5484d; --danger-bg:#fdecec;
+  --gold:#f6a609; --gold-dark:#b98900;
+  --radius:16px; --shadow:0 10px 30px rgba(15,27,45,.08); --shadow-lg:0 20px 50px rgba(15,27,45,.14);
+  --maxw:1040px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+img{max-width:100%; display:block}
+a{color:inherit}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 18px}
+.section{padding:44px 0}
+@media(max-width:640px){.section{padding:32px 0}}
+h1,h2,h3{line-height:1.15; margin:0 0 .5em; letter-spacing:-.02em}
+h1{font-size:clamp(24px,4.6vw,40px); font-weight:800}
+h2{font-size:clamp(21px,3.4vw,30px); font-weight:800}
+h3{font-size:clamp(16px,2.2vw,20px); font-weight:700}
+p{margin:0 0 1em}
+.eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.08em; color:var(--accent); margin-bottom:10px}
+.center{text-align:center}
+.muted{color:var(--muted)}
+
+/* buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; border:none; cursor:pointer;
+  font-family:inherit; font-weight:800; font-size:17px; padding:16px 28px; border-radius:14px; text-decoration:none;
+  transition:transform .12s ease, box-shadow .2s ease; text-align:center}
+.btn-primary{color:#fff; background:linear-gradient(135deg,var(--accent),var(--accent-dark)); box-shadow:0 10px 24px rgba(31,111,235,.35)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-cta{position:relative; overflow:hidden}
+.btn-cta::after{content:""; position:absolute; top:0; left:-120%; width:60%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent); transform:skewX(-20deg); animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,60%{left:-120%}100%{left:130%}}
+
+/* header */
+header.top{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:saturate(160%) blur(10px); border-bottom:1px solid var(--line)}
+.topbar{background:linear-gradient(90deg,var(--accent-dark),var(--accent)); color:#fff; font-size:12.5px; font-weight:600; text-align:center; padding:6px 12px}
+.top-inner{display:flex; align-items:center; justify-content:space-between; height:60px; gap:10px}
+.logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:19px; letter-spacing:-.02em; min-width:0}
+.logo .mark{width:36px; height:36px; border-radius:10px; flex:none; display:grid; place-items:center; font-size:24px; line-height:1;
+  background:#fff; border:1px solid var(--line)}
+.logo small{font-weight:600; font-size:11px; color:var(--muted); display:block; letter-spacing:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.vf{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--ok); background:var(--ok-bg);
+  border:1px solid #bfe9cf; padding:6px 11px; border-radius:999px; white-space:nowrap}
+@media(max-width:480px){.vf span{display:none} .vf{padding:7px}}
+
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 80% -10%,rgba(31,111,235,.10),transparent 60%),linear-gradient(180deg,var(--bg-soft),#fff); padding:26px 0 28px}
+.hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px 32px; align-items:start}
+.hero-grid>#buy{grid-row:1/3; grid-column:2}
+.hero-grid>.scarcity{grid-column:1; margin-top:0}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr; gap:14px} .hero-grid>#buy{grid-row:auto; grid-column:1} .hero-grid>.scarcity{order:3} .hero{padding:12px 0 20px}}
+.badges-row{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px}
+.pill{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; background:#fff; border:1px solid var(--line);
+  padding:6px 11px; border-radius:999px; box-shadow:0 2px 6px rgba(15,27,45,.04)}
+.pill.ok{color:var(--ok); border-color:#bfe9cf; background:var(--ok-bg)}
+.product-card{background:#fff; border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow-lg); padding:16px; position:relative; text-align:center}
+@media(min-width:861px){.product-card>div{text-align:center}}
+.product-card .ribbon{display:inline-block; margin-bottom:6px; color:#fff; font-weight:800; font-size:13px; padding:7px 12px; border-radius:11px;
+  background:linear-gradient(135deg,var(--ok),#0b7a3b); box-shadow:0 6px 16px rgba(18,161,80,.35)}
+.product-card .disc-ribbon{position:absolute; top:14px; right:14px; z-index:2; background:linear-gradient(135deg,var(--danger),#c11); color:#fff; font-weight:800; font-size:13px; padding:7px 12px; border-radius:11px}
+.product-card img{margin:8px auto 6px; max-height:360px; width:auto; height:auto; object-fit:contain}   /* 18.09: фото крупнее; height:auto — иначе атрибут height сплющивает кадр */
+/* 18.09: на мобильных карточка в одну колонку — фото крупное по центру, бейдж и подпись под ним (было: две колонки, фото ~90 px) */
+@media(max-width:860px){.product-card{padding:12px 12px 10px; display:block; text-align:center} .product-card img{max-height:250px; max-width:100%; width:auto; height:auto; margin:4px auto 8px; display:block} .product-card .ribbon{position:static; display:inline-block; margin-bottom:6px} .product-card .disc-ribbon{top:10px; right:10px} .shotcap{font-size:12px}}
+.shotcap{font-size:12.5px; color:var(--muted); font-weight:600}
+.price-box{display:flex; align-items:baseline; gap:12px; margin:12px 0 4px; flex-wrap:wrap}
+.price-new{font-size:40px; font-weight:800; letter-spacing:-.03em; line-height:1; color:var(--danger); display:inline-block; transform-origin:left center;
+  animation:pricePulse 2.4s ease-in-out infinite}   /* 17.09: цена выделена цветом и мягкой пульсацией (решение пользователя) */
+@keyframes pricePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.price-new{animation:none}}
+.price-old{font-size:20px; color:var(--muted); text-decoration:line-through}
+.save-badge{background:var(--danger-bg); color:var(--danger); font-weight:800; font-size:13.5px; padding:5px 10px; border-radius:9px}
+.pricenote{font-size:12.5px; color:var(--muted); margin:0 0 12px}
+.sub-h{font-size:16.5px; color:var(--ink); font-weight:600; margin:-4px 0 12px; line-height:1.35}
+.save-abs{background:var(--ok-bg); color:var(--ok); font-weight:800; font-size:13.5px; padding:5px 10px; border-radius:9px}
+.answers{list-style:none; padding:0; margin:0 0 14px; display:grid; gap:5px}
+.answers li{font-size:14px; color:var(--ink); padding-left:22px; position:relative}
+.answers li::before{content:"✔"; position:absolute; left:0; color:var(--ok); font-weight:800}
+.answers li:empty{display:none}
+.steps4{margin:0 0 12px; padding:0 0 0 22px; font-size:13.5px; color:var(--muted); display:grid; gap:3px}
+.steps4 li::marker{color:var(--accent); font-weight:800}
+.steps4 li:empty{display:none}
+.phonewhy{font-size:11.5px; color:var(--muted); margin:-4px 0 10px; line-height:1.35}
+.phonewhy:empty,.sub-h:empty{display:none}
+.rv-dist{display:grid; gap:3px; min-width:170px; font-size:12px; color:var(--muted)}
+.rv-dist div{display:grid; grid-template-columns:22px 1fr 34px; align-items:center; gap:6px}
+.rv-dist i{display:block; height:6px; background:var(--gold); border-radius:99px}
+.rv-dist b{font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; text-align:right}
+.review .reply{margin-top:8px; padding:8px 10px; background:var(--bg-soft2); border-radius:8px; font-size:13px; color:var(--ink)}
+.review .reply b{display:block; font-size:11.5px; color:var(--muted); margin-bottom:2px}
+/* медальоны-«печати» (v4.1) */
+.medals{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:14px 0 0}
+@media(max-width:860px){.medals{gap:7px}
+  .medal{padding:9px 4px 8px} .medal svg{width:42px; height:42px} .medal.flag .fl{font-size:20px; line-height:42px; height:42px; top:9px}
+  .medal b{font-size:9.5px; letter-spacing:0}}
+@media(max-width:400px){.medals{gap:5px} .medal svg{width:34px; height:34px}
+  .medal.flag .fl{font-size:17px; line-height:34px; height:34px} .medal b{font-size:8.5px}}
+.medal.flag{position:relative}
+.medal.flag .fl{position:absolute; top:12px; left:50%; transform:translateX(-50%); font-size:26px; line-height:54px; height:54px; display:block; filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+.medal{display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px; background:#fff; border:1px solid #f1e3b8; border-radius:14px; padding:12px 8px 10px; box-shadow:0 4px 14px rgba(185,137,0,.10)}
+.medal svg{width:54px; height:54px; filter:drop-shadow(0 3px 6px rgba(185,137,0,.35))}
+.medal b{font-size:12px; line-height:1.25; color:var(--gold-dark); letter-spacing:.02em; text-transform:uppercase}
+.medal b:empty{display:none}
+/* бумаги-сертификаты (v4.1) */
+.certs{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:14px auto 0; max-width:500px}
+@media(max-width:640px){.certs{gap:8px; max-width:300px}}
+.cert{position:relative; padding:0; border:none; background:#fdfaf3; border-radius:6px; overflow:hidden; cursor:zoom-in;
+  box-shadow:0 6px 18px rgba(15,27,45,.14); aspect-ratio:2/3; font-family:inherit; display:block; width:100%}
+.cert img{width:100%; height:100%; object-fit:cover; display:block}
+.cert .txt{position:absolute; inset:7% 9% 30%; display:flex; flex-direction:column; align-items:center; text-align:center;
+  color:#3a2c14; font-family:Georgia,"Times New Roman",serif}
+.cert .flag{font-size:clamp(14px,3.4vw,20px); line-height:1; margin-bottom:4px}
+.cert .t{font-size:clamp(8px,1.9vw,11px); font-weight:700; letter-spacing:.05em; text-transform:uppercase; line-height:1.25}
+.cert .rule{width:38%; height:1px; background:#b98900; opacity:.6; margin:5px 0 6px}
+.cert .p{font-size:clamp(6px,1.35vw,8px); line-height:1.4; color:#4a3a1c; overflow:hidden}
+.cert .prod{margin-top:auto; font-size:clamp(6.5px,1.4vw,8.5px); font-weight:700; font-style:italic; color:#6b4f14;
+  max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.cert-lb{position:fixed; inset:0; z-index:120; background:rgba(10,16,26,.82); display:grid; place-items:center; padding:18px}
+.cert-lb[hidden]{display:none}
+.cert-lb .cert{max-width:min(420px,86vw); cursor:default; box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.cert-x{position:absolute; top:14px; right:16px; width:40px; height:40px; border:none; border-radius:50%;
+  background:rgba(255,255,255,.9); font-size:24px; line-height:1; cursor:pointer; color:#0f1b2d}
+@media(max-width:640px){h1{font-size:22px} .pill{font-size:11px; padding:5px 9px} .badges-row{gap:5px; margin-bottom:8px} .pricenote{display:none} .form-card .sub{display:none} .price-box{margin:8px 0 10px} .price-new{font-size:34px}}
+
+/* form card */
+.form-card{background:#fff; border:2px solid var(--accent); border-radius:18px; padding:18px; color:var(--ink); box-shadow:var(--shadow)}
+.form-card h3{margin-bottom:2px; font-size:18px}
+/* 18.09: кнопка должна читаться как раскрывающийся элемент — рамка, подложка, круглая стрелка */
+.howq{display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; background:var(--bg-soft2); border:1.5px dashed var(--accent); border-radius:12px; padding:10px 12px 10px 14px; margin:0 0 12px; font:inherit; font-weight:700; font-size:15px; color:var(--accent); cursor:pointer; text-align:left}
+.howq .chev{flex:none; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; display:grid; place-items:center; font-size:14px; line-height:1; transition:transform .25s}
+.howq[aria-expanded="true"]{border-style:solid; border-radius:12px 12px 0 0; margin-bottom:0}
+.howq[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.howq[aria-expanded="true"]+.steps4{border:1.5px solid var(--accent); border-top:none; border-radius:0 0 12px 12px; padding:10px 12px 12px 34px; margin:0 0 12px; background:#fff}
+.steps4[hidden]{display:none}
+.form-card .sub{color:var(--muted); font-size:13.5px; margin-bottom:12px}
+.inp{width:100%; padding:14px 15px; border:1.5px solid #cfd8e3; border-radius:12px; font-size:16px; font-family:inherit; outline:none; margin-bottom:10px;
+  transition:border-color .15s, box-shadow .15s}
+.inp:focus{border-color:var(--accent); box-shadow:0 0 0 4px rgba(31,111,235,.12)}
+.inp.bad{border-color:var(--danger); box-shadow:0 0 0 4px rgba(229,72,77,.12)}
+.phone-field{display:flex; gap:8px; margin-bottom:10px}
+select.cty{appearance:auto; background:#fff; font-weight:600; color:var(--ink)}
+.phone-field .inp{margin-bottom:0; flex:1; min-width:0}
+.phone-field .p48{flex:none; display:flex; align-items:center; gap:4px; font-weight:800; font-size:15px; color:var(--ink); background:var(--bg-soft); border:1.5px solid #cfd8e3; border-radius:12px; padding:0 12px}
+.ph-err{display:none; font-size:12.5px; color:var(--danger); font-weight:600; margin:-4px 0 8px 2px}
+.phone-field.warn+ .ph-err{display:block;color:#b7791f}
+.phone-field.bad+ .ph-err{display:block;color:var(--danger)}
+.ph-other{display:inline-block; background:none; border:0; padding:2px 0; margin:-2px 0 8px 2px; font:inherit; font-size:15.5px; font-weight:600; color:#1a56db; text-decoration:underline; cursor:pointer; text-align:left}
+.ph-other.on{color:var(--ink); text-decoration:none}
+.ph-other:empty{display:none}
+.form-card .btn{width:100%; font-size:18px; padding:17px}
+.form-note{font-size:12.5px; color:var(--muted); text-align:center; margin:8px 0 0}
+.today-line{font-size:13px; font-weight:700; color:var(--ok); text-align:center; margin:10px 0 0}
+.today-line b{font-variant-numeric:tabular-nums}
+.ok-msg{display:none; background:var(--ok-bg); border-radius:14px; padding:20px 16px; text-align:center}
+.ok-msg .ok-big{width:56px; height:56px; margin:0 auto 10px; border-radius:50%; background:var(--ok); color:#fff; display:grid; place-items:center}
+.ok-msg b{color:var(--ok); font-size:17px; display:block; margin-bottom:6px}
+.ok-msg .ok-when{color:#0c6b36; font-size:14.5px; margin:0 0 8px}
+.ok-msg .ok-keep{color:var(--muted); font-size:13px; font-weight:600; margin:0}
+.sig{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:14px}
+.sig div{font-size:11.5px; line-height:1.25; font-weight:600; color:var(--ink); text-align:center; background:var(--bg-soft); border-radius:12px; padding:10px 4px}
+.sig svg{width:22px; height:22px; display:block; margin:0 auto 6px; color:var(--accent)}
+.fake-hint{display:block; text-align:center; margin-top:12px; font-size:13px; font-weight:700; color:var(--danger); text-decoration:none}
+
+/* scarcity */
+.scarcity{background:linear-gradient(135deg,#111827,#1f2937); color:#fff; border-radius:var(--radius); padding:16px 18px; display:flex;
+  align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; box-shadow:var(--shadow); margin-top:18px}
+.scarcity.kept{background:linear-gradient(135deg,#0b7a3b,#12a150)} .scarcity.kept .stock-line b{color:#fff}
+.scarcity .left{display:flex; align-items:center; gap:12px; font-weight:700; font-size:14.5px}
+.timer{display:flex; gap:6px}
+.timer .unit{background:rgba(255,255,255,.12); border-radius:10px; padding:7px 10px; text-align:center; min-width:52px}
+.timer .num{font-size:22px; font-weight:800; line-height:1; font-variant-numeric:tabular-nums}
+.timer .ms{min-width:44px; opacity:.85} .timer .ms .num{color:#ff8a80}
+.timer .lab{font-size:10px; opacity:.7; text-transform:uppercase; letter-spacing:.06em}
+.stock-line{font-size:13.5px; min-width:190px}
+.stock-line b{color:#ffd27a; display:inline-block; font-variant-numeric:tabular-nums; transition:transform .2s}
+.stock-line b.pop{animation:pop .9s ease}
+@keyframes pop{0%{transform:scale(1);color:#ffd27a}30%{transform:scale(1.45);color:#ff6b6b}100%{transform:scale(1);color:#ffd27a}}
+.stockbar{height:7px; background:rgba(255,255,255,.15); border-radius:99px; margin-top:6px; overflow:hidden; width:100%; max-width:220px}
+.stockbar>i{display:block; height:100%; background:linear-gradient(90deg,#f6a609,#e5484d); border-radius:99px; transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.sold-toast{position:fixed; left:12px; bottom:84px; z-index:70; background:#fff; color:var(--ink); border:1px solid var(--line); border-radius:14px;
+  box-shadow:var(--shadow-lg); padding:10px 14px; font-size:13px; display:flex; gap:10px; align-items:center; max-width:300px;
+  transform:translateY(20px); opacity:0; transition:all .4s; pointer-events:none}
+.sold-toast.show{transform:none; opacity:1}
+.sold-toast .av{width:30px; height:30px; border-radius:50%; background:var(--bg-soft2); color:var(--accent); font-weight:800; display:grid; place-items:center; flex:none}
+@media(min-width:821px){.sold-toast{bottom:20px}}
+
+/* seal */
+.apr{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:12px}
+.apr>div{display:flex; gap:10px; align-items:flex-start; background:#fff; border:1px solid #e3e9f1; border-radius:var(--radius); padding:12px 12px 11px}
+.apr svg{width:30px; height:30px; flex:none; margin-top:1px}
+.apr b{display:block; font-size:13.5px; line-height:1.25; color:var(--ink); margin-bottom:3px} .apr span{display:block; font-size:12px; line-height:1.35; color:var(--muted)}
+@media(max-width:860px){.apr{grid-template-columns:1fr 1fr; gap:8px} .apr>div{padding:10px} .apr svg{width:26px;height:26px}}
+@media(max-width:480px){.apr{grid-template-columns:1fr; gap:6px} .apr>div{padding:9px 11px; align-items:center} .apr b{font-size:13px; margin-bottom:1px} .apr span{font-size:11.5px}}
+.seal{display:flex; gap:14px; align-items:center; background:linear-gradient(180deg,#fffaf0,#fff4dc); border:1px solid #f0d9a4; border-radius:var(--radius); padding:14px 16px}
+.seal svg{width:52px; height:52px; flex:none}
+.seal b{display:block; font-size:15px; color:#6b4d00} .seal span{font-size:13px; color:#7a5f1a}
+
+/* alert */
+.alert{background:var(--danger-bg); border:1px solid #f6c9ca; border-radius:var(--radius); padding:20px 22px}
+.alert h2{color:var(--danger); display:flex; align-items:center; gap:10px; font-size:22px}
+.alert p{color:#6b2325; font-size:15px; margin-bottom:8px} .alert p:last-child{margin:0}
+
+/* comparison */
+.cmp-scroll{overflow-x:auto}
+.cmp{width:100%; border-collapse:separate; border-spacing:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); min-width:520px}
+.cmp th,.cmp td{padding:13px 14px; text-align:left; font-size:14px; border-bottom:1px solid var(--line); vertical-align:top}
+.cmp thead th{background:var(--bg-soft); font-weight:800; font-size:13.5px}
+.cmp th.ok{color:var(--ok)} .cmp th.no{color:var(--danger)}
+.cmp tr:last-child td{border-bottom:none}
+.cmp td:first-child{font-weight:700; white-space:nowrap}
+.cmp td:nth-child(2){color:#0c6b36} .cmp td:nth-child(3){color:#8a2b2e}
+@media(max-width:640px){.cmp{min-width:0} .cmp td:first-child{white-space:normal} .cmp th,.cmp td{padding:10px 9px; font-size:12.5px}}
+
+/* steps */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px}
+@media(max-width:820px){.steps{grid-template-columns:1fr; gap:14px}}
+.step{position:relative; padding-left:58px; font-size:14.5px; color:#33425a}
+.step .n{position:absolute; left:0; top:0; width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:#fff;
+  display:grid; place-items:center; font-weight:800; font-size:18px; box-shadow:0 8px 18px rgba(31,111,235,.3)}
+
+/* guarantees */
+.guar{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:20px}
+@media(max-width:820px){.guar{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.guar{grid-template-columns:1fr}}
+.card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 16px; box-shadow:var(--shadow)}
+.card .ic{width:46px; height:46px; border-radius:13px; display:grid; place-items:center; margin:0 auto 10px; background:var(--bg-soft2); color:var(--accent)}
+.card .ic svg{width:24px; height:24px}
+.card b{display:block; font-size:15px; margin-bottom:4px} .card span{font-size:13px; color:var(--muted)}
+.guar .card{text-align:center}
+
+/* delivery */
+.deliv{margin-top:18px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow)}
+.d-head{font-size:15px; margin-bottom:12px} .d-head b{margin-right:8px} .d-head span{color:var(--muted); font-size:13px; font-weight:600}
+.d-row{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+@media(max-width:720px){.d-row{grid-template-columns:1fr}}
+.d-row>div{display:flex; gap:10px; align-items:center; background:var(--bg-soft); border-radius:12px; padding:10px 12px}
+.d-row svg{width:30px; height:30px; flex:none; color:var(--accent)}
+.d-row b{display:block; font-size:14px} .d-row span{font-size:12.5px; color:var(--muted)}
+
+/* reviews */
+.rv-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:16px}
+.rv-score{display:flex; align-items:center; gap:10px; font-size:14px; color:var(--muted); font-weight:600}
+.rv-score b{font-size:26px; color:var(--ink)}
+.stars{color:var(--gold); font-size:15px; letter-spacing:1.5px}
+.reviews{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+@media(max-width:820px){.reviews{grid-template-columns:1fr}}
+.review{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+.review.hid{display:none}
+.review .head{display:flex; align-items:center; gap:10px; margin-bottom:8px}
+.avatar{width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-weight:800; color:#fff; font-size:16px; flex:none; position:relative; overflow:hidden}
+.avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%}
+.review .name{font-weight:700; font-size:14.5px; display:flex; align-items:center; gap:6px} .review .name .src{width:15px; height:15px} .review .city{font-size:12px; color:var(--muted)}
+.review .verified{font-size:11.5px; color:var(--ok); font-weight:700; margin-left:auto; white-space:nowrap}
+.review p{margin:0; font-size:14px; color:#33425a} .review .stars{font-size:13px; margin-bottom:6px}
+.rv-more{display:block; margin:16px auto 0; background:#fff; border:1.5px solid var(--line); color:var(--ink); box-shadow:none; font-size:15px; padding:13px 26px}
+
+/* FAQ */
+.faq{max-width:760px; margin:18px auto 0}
+.q{background:#fff; border:1px solid var(--line); border-radius:14px; margin-bottom:10px; overflow:hidden}
+.q button{width:100%; text-align:left; background:none; border:none; padding:15px 18px; font-size:15px; font-weight:700; font-family:inherit; cursor:pointer;
+  display:flex; justify-content:space-between; gap:14px; align-items:center; color:var(--ink)}
+.q .chev{transition:transform .25s; flex:none; color:var(--accent)}
+.q.open .chev{transform:rotate(180deg)}
+.q .ans{max-height:0; overflow:hidden; transition:max-height .3s ease; color:var(--muted); font-size:14.5px}
+.q .ans-inner{padding:0 18px 16px}
+
+/* final order */
+.order{background:radial-gradient(900px 400px at 15% 0%,rgba(31,111,235,.10),transparent 60%),linear-gradient(180deg,#0f1b2d,#16233a); color:#fff; border-radius:22px; padding:28px; box-shadow:var(--shadow-lg)}
+@media(max-width:640px){.order{padding:20px 16px}}
+.order-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center}
+@media(max-width:820px){.order-grid{grid-template-columns:1fr; gap:18px}}
+.order h2{color:#fff} .order .muted{color:#b7c3d6}
+.order .price-old{color:#93a4bd}
+.order ul.perks{list-style:none; padding:0; margin:14px 0 0}
+.order ul.perks li{display:flex; gap:10px; align-items:center; margin-bottom:8px; font-size:14.5px; color:#cdd8e8}
+.order ul.perks li svg{color:#5fe3a1; flex:none}
+.order .form-card{border-color:#fff}
+
+/* sticky */
+.sticky-cta{position:fixed; left:0; right:0; bottom:0; z-index:60; background:#fff; border-top:1px solid var(--line); box-shadow:0 -6px 20px rgba(15,27,45,.1);
+  padding:9px 14px; display:none; align-items:center; justify-content:space-between; gap:12px; transform:translateY(110%); transition:transform .3s}
+.sticky-cta.on{transform:none}
+.sticky-cta .p{font-weight:800; font-size:17px; line-height:1.1} .sticky-cta .p small{display:block; font-size:12px; color:var(--muted); font-weight:600; text-decoration:line-through}
+.sticky-cta .btn{padding:12px 18px; font-size:15px; flex:none}
+@media(max-width:820px){.sticky-cta{display:flex}}
+
+/* footer */
+footer{background:var(--bg-soft); border-top:1px solid var(--line); padding:28px 0 90px; font-size:13px; color:var(--muted)}
+@media(min-width:821px){footer{padding-bottom:28px}}
+.legal{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:12.5px; margin-bottom:14px}
+.legal b{color:var(--ink)}
+footer .links{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:10px}
+footer a{text-decoration:none; font-weight:600}
+.disclaimer{font-size:12px; color:#8493a8}
+body.free .disc,body:not(.free) .nodisc{display:none}
+/* 13.10: мобильный первый экран — заголовок и цена выше фото, фото компактнее, форма сразу под ним (display:contents раскладывает #buy по сетке) */
+@media(max-width:860px){
+  .hero-grid>#buy{display:contents}
+  .hero-grid>#buy>h1{order:1; margin:0 0 4px}
+  .hero-grid>#buy>.price-box{order:2; margin:0 0 4px}
+  .hero-grid>#buy>.pricenote{order:2}
+  .hero-grid>div:first-child{order:3}
+  .hero-grid>#buy>.form-card{order:4}
+  .hero-grid>#buy>.sig{order:5}
+  .hero-grid>#buy>.fake-hint{order:6}
+  .hero-grid>.scarcity{order:7}
+  .hero-grid{gap:10px}
+  .product-card{padding:8px 10px 8px} .product-card img{max-height:200px; margin:2px auto 4px} .product-card .ribbon{font-size:12px; padding:5px 10px}
+  .shotcap{display:none}
+}
+/* 13.10: липкая кнопка заказа на телефоне — показывается, когда обе формы вне экрана; после отправки лида убирается */
+.sticky-cta .p{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.sticky-cta.off{display:none!important}
+/* 13.10: на телефоне верхнюю полосу «официальный сайт · оплата при получении» не показываем (решение пользователя) — экономит первый экран */
+@media(max-width:820px){.topbar{display:none}}
+/* 13.10: полоса массовости под ценой — заказов в стране, повторные заказы, рейтинг и число отзывов (просьба пользователя «подчеркнуть, что заказали тысячи») */
+.proof{display:flex; flex-wrap:wrap; gap:6px 14px; margin:2px 0 10px; font-size:13px; font-weight:600; color:var(--muted)}
+.proof span{display:inline-flex; align-items:center; gap:5px; white-space:nowrap}
+.proof span:first-child{color:var(--ink); font-weight:800}
+.proof i{font-style:normal}
+@media(max-width:860px){.hero-grid>#buy>.proof{order:2; margin:0 0 6px} .proof{font-size:12.5px; gap:4px 12px}}
+.order .proof{color:#b7c3d6; margin-top:8px} .order .proof span:first-child{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="topbar">Единственный официальный сайт производителя · Оплата при получении</div>
+  <div class="wrap top-inner">
+    <div class="logo">
+      <span class="mark" id="logoFlag">🇱🇹</span>
+      <span style="min-width:0">Ocularix<sup style="font-size:11px">®</sup><small>Единственный официальный сайт производителя</small></span>
+    </div>
+    <div class="vf"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5l-9-4zm-1.2 15.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6L17.8 9l-7 7.2z"/></svg><span>Прямые продажи</span></div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="product-card">
+          <span class="disc-ribbon disc">-50%</span>
+          <img src="../../img/src-cp-16991.webp" alt="Ocularix" width="560" height="560" fetchpriority="high" decoding="async">
+          <div><span class="ribbon">Оригинал</span><div class="shotcap">Это оригинальная упаковка, которую привезёт курьер: пломба, номер партии, срок годности.</div></div>
+        </div>
+      </div>
+        <div class="scarcity" id="scarcity">
+          <div class="left">
+            <span>🔒 <span class="disc">Ваша скидка -50% действует, пока открыта эта страница</span><span class="nodisc">Предложение закончится через:</span></span>
+          </div>
+          <div class="stock-line">Осталось: <b id="stockNum">46</b> уп. из текущей партии
+            <div class="stockbar"><i id="stockBar" style="width:70%"></i></div></div>
+        </div>
+        <div class="scarcity kept" id="kept" style="display:none"><div class="left">✔ <span class="disc">Акционная цена -50% закреплена за вашим визитом</span><span class="nodisc">Предложение закреплено за вашим визитом</span></div>
+          <div class="stock-line">Осталось: <b id="stockNum2">46</b> уп. из текущей партии</div></div>
+
+      <div id="buy">
+        <h1>Ocularix® — единственный официальный сайт</h1>
+        <div class="price-box">
+          <span class="price-new">5 €</span>
+          <span class="price-old">50 €</span>
+          <span class="save-badge disc">-50%</span>
+        </div>
+        <div class="proof"><span><i>👥</i>Уже более 9 100 заказов в Европе</span><span><i>↻</i>87 % заказывают повторно</span><span><i>★</i>4,8 · на основе 2 300 отзывов</span></div>
+        <p class="pricenote">Акционная цена действует, пока в наличии текущая партия.</p>
+
+        <div class="form-card">
+          <form class="order-form" autocomplete="on" novalidate>
+            <button type="button" class="howq" aria-expanded="false">Как заказать?<span class="chev">▾</span></button>
+            <ol class="steps4" hidden><li>Вы оставляете имя и номер телефона</li><li>Консультант перезванивает, чтобы согласовать адрес и время доставки; данные карты не нужны</li><li>Курьер привозит посылку за 1–3 дня</li><li>При получении вы проверяете посылку и платите курьеру</li></ol>
+            <input class="inp" type="text" name="name" placeholder="Имя и фамилия" autocomplete="name">
+            <div class="phone-field"><span class="p48">🇱🇹 +370</span><input class="inp" type="tel" name="phone" placeholder="20 123 456" inputmode="numeric" autocomplete="tel"></div>
+            <p class="ph-err">Введите корректный номер телефона</p>
+            <button type="button" class="ph-other" data-intl="+49 151 2345678">Номер другой страны?</button>
+            <p class="phonewhy">Номер нужен для звонка с подтверждением. Его получают только продавец, служба подтверждения заказов и курьер.</p>
+            <input type="hidden" name="kw" value="rueu-tl-ocularix-lt">
+            <button class="btn btn-primary btn-cta" type="submit">ЗАКАЗАТЬ ОРИГИНАЛ</button>
+            <p class="today-line">🛒 Сегодня уже заказали <b class="todayN">—</b> человек</p>
+            <p class="form-note">Без предоплаты · проверка при получении · 🔒 SSL-шифрование</p>
+          </form>
+          <div class="ok-msg"><div class="ok-big"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <b>Спасибо! Ваш заказ принят.</b><p class="ok-when"></p><p class="ok-keep">🔔 Держите телефон под рукой и ответьте на звонок.</p></div>
+        </div>
+        <div class="sig">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h3"/></svg>Оплата<br>при получении</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Курьер<br>1–3 дня</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M9 11l1.5 1.5L13.5 9"/></svg>Проверка<br>до оплаты</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Консультант<br>перезвонит</div>
+        </div>
+        <a class="fake-hint" href="#podrobki">⚠ Остерегайтесь подделок — узнайте, как отличить оригинал</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEAL ============ -->
+<div class="wrap" style="margin-top:18px">
+  <!-- 14.10: траст-блок «одобрен / доказано / без противопоказаний / рекомендуют» (просьба пользователя: до этого все блоки были про доставку и подделки) -->
+  <div class="apr">
+    <div><svg viewBox="0 0 28 28" fill="none" stroke="#b98900" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l9 3.5v6c0 5.5-3.8 9.7-9 11.5-5.2-1.8-9-6-9-11.5v-6L14 3z"/><path d="M9.5 14l3 3 6-6"/></svg><div><b>Проверен и одобрен Минздравом</b><span>И тысячами довольных клиентов по всей стране</span></div></div>
+    <div><svg viewBox="0 0 28 28" fill="none" stroke="#b98900" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3h6M12 3v7l-6 11a2 2 0 001.8 3h12.4a2 2 0 001.8-3l-6-11V3"/><path d="M9 17h10"/></svg><div><b>Эффективность научно доказана</b><span>Подтверждена исследованиями и практикой применения</span></div></div>
+    <div><svg viewBox="0 0 28 28" fill="none" stroke="#b98900" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 23C5 11 13 5 24 5c0 11-6 19-18 19"/><path d="M5 23l9-9"/></svg><div><b>Без противопоказаний</b><span>Не имеет побочных эффектов</span></div></div>
+    <div><svg viewBox="0 0 28 28" fill="none" stroke="#b98900" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13v10H4V13h4z"/><path d="M8 13l5-9c1.5 0 2.5 1 2.5 2.5V11h6a2 2 0 012 2.3l-1.4 7A2 2 0 0120 22H8"/></svg><div><b>90 % рекомендуют</b><span>Друзьям и близким по итогам опроса покупателей</span></div></div>
+  </div>
+  <div class="seal">
+    <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#fff" stroke="#b98900" stroke-width="1.5"/><circle cx="20" cy="20" r="14.5" fill="none" stroke="#b98900" stroke-width=".8" stroke-dasharray="2 1.5"/><path d="M13.5 20.5l4 4 9-9" fill="none" stroke="#b98900" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><b>Оригинальный продукт — прямые продажи</b><span>Каждая посылка с пломбой производителя и номером партии. Без посредников и наценок.</span></div>
+  </div>
+  <div class="certs">
+    <button class="cert" type="button" data-i="0"><img src="../../img/cert1.webp" alt="" loading="lazy" width="620" height="930"><span class="txt"><span class="flag">🇱🇹</span><span class="t">Прямые продажи</span><span class="rule"></span><span class="p">Заказы обрабатывает служба поддержки клиентов производителя. Каждый заказ перед отправкой подтверждается по телефону.</span><span class="prod">Ocularix®</span></span></button>
+    <button class="cert" type="button" data-i="1"><img src="../../img/cert2.webp" alt="" loading="lazy" width="620" height="930"><span class="txt"><span class="flag">🇱🇹</span><span class="t">Оригинальная упаковка</span><span class="rule"></span><span class="p">Каждая посылка отправляется с пломбой производителя и номером партии. Без посредников и перекупщиков.</span><span class="prod">Ocularix®</span></span></button>
+    <button class="cert" type="button" data-i="2"><img src="../../img/cert3.webp" alt="" loading="lazy" width="620" height="930"><span class="txt"><span class="flag">🇱🇹</span><span class="t">Обязательства продавца</span><span class="rule"></span><span class="p">Вы осматриваете посылку при получении и платите только после проверки. От посылки можно бесплатно отказаться.</span><span class="prod">Ocularix®</span></span></button>
+  </div>
+</div>
+<div class="cert-lb" id="certLb" hidden><button class="cert-x" type="button" aria-label="×">×</button><div class="cert-big"></div></div>
+
+<!-- ============ WARNING ============ -->
+<section class="section" id="podrobki" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="alert">
+      <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 9v5"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg>Остерегайтесь подделок</h2>
+      <p>В последнее время в интернете появилось много имитаций Ocularix®. Их продают на сайтах объявлений и в случайных интернет-магазинах — с очень похожим названием и почти такой же упаковкой, но с неизвестным составом и происхождением.</p>
+      <p>Оригинальный Ocularix® не продаётся в обычных магазинах и на маркетплейсах. Заказать его можно только здесь — напрямую у производителя, без посредников и наценок.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="center">Оригинал и подделка — в чём разница</h2>
+    <div class="cmp-scroll">
+      <table class="cmp">
+        <thead><tr><th>Признак</th><th class="ok">✓ Оригинал (этот сайт)</th><th class="no">✕ Подделка</th></tr></thead>
+        <tbody>
+          <tr><td>Активный состав</td><td>Полный, подтверждён производителем</td><td>Урезан или отсутствует</td></tr>
+          <tr><td>Пломба и номер партии</td><td>Есть на каждой упаковке</td><td>Нет или поддельные</td></tr>
+          <tr><td>Оплата</td><td>При получении, после проверки</td><td>Требуют заранее</td></tr>
+          <tr><td>Цена</td><td>Честная, от производителя</td><td>Подозрительно низкая</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO CHECK ============ -->
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Единственный официальный сайт производителя</div><h2>Как отличить оригинал</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div>Заказывайте только на этом сайте — это единственный канал прямых продаж производителя.</div>
+      <div class="step"><div class="n">2</div>При получении проверьте пломбу и номер партии на упаковке.</div>
+      <div class="step"><div class="n">3</div>Платите только после того, как осмотрели посылку в присутствии курьера.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARANTEES ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="center">Заказ без риска</h2>
+    <div class="guar">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h3"/></svg></div><b>Оплата только при получении</b><span>Никакой предоплаты. Вы платите курьеру наличными или картой только тогда, когда посылка уже у вас в руках.</span></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M9 11l1.5 1.5L13.5 9"/></svg></div><b>Проверка до оплаты</b><span>Вы открываете и проверяете посылку при курьере. Если что-то не так, от неё можно отказаться без каких-либо расходов.</span></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Конфиденциальная доставка</b><span>Отправляем в нейтральной упаковке, без указания содержимого. Данные используем только для доставки.</span></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div><b>Подтверждение по телефону</b><span>После отправки формы консультант перезванивает, подтверждает заказ, адрес и дату доставки. Заодно ответит на ваши вопросы.</span></div>
+    </div>
+
+    <div class="deliv">
+      <div class="d-head">🚚 <b>Доставка по всей стране</b><span>отправка в течение 24 ч · оплата при получении</span></div>
+      <div class="d-row">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/><circle cx="18" cy="6" r="1.1" fill="currentColor" stroke="none"/></svg><div><b>Пункт выдачи или постамат</b><span>заберёте, когда удобно, конфиденциально</span></div></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><div><b>Курьер до двери</b><span>в удобное время, 1–3 дня</span></div></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8l9 6 9-6"/></svg><div><b>Почтовое отделение</b><span>получение в ближайшем отделении</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--REVIEWS-->
+<section class="section" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="rv-head">
+      <div><div class="eyebrow">Отзывы покупателей</div><h2 style="margin:0">Что пишут те, кто заказал здесь</h2></div>
+      <div class="rv-score"><b>4,8</b><div><div class="stars">★★★★★</div>на основе 2 300 отзывов</div></div>
+      <div class="rv-dist"><div><span>5★</span><i style="width:81%"></i><b>81%</b></div><div><span>4★</span><i style="width:14%"></i><b>14%</b></div><div><span>3★</span><i style="width:5%"></i><b>5%</b></div></div>
+      <span class="pill ok" style="align-self:center">↻ 87 % клиентов заказывают повторно</span>
+    </div>
+    <div class="reviews" id="reviews">
+      <div class="review"><div class="head"><div class="avatar" style="background:#1f6feb">И<img src="../../img/av/rvf0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ирина К.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Рига · <span class="ago" data-i="0"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Перезвонили минут через двадцать, уточнили адрес и удобный день. Курьер приехал ровно в оговорённое время, оплатила на месте.»</p></div>
+      <div class="review"><div class="head"><div class="avatar" style="background:#12a150">С<img src="../../img/av/rvm0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Сергей В.</div><div class="city">Даугавпилс · <span class="ago" data-i="1"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказал во вторник вечером, в четверг уже забрал посылку. Никакой предоплаты не просили.»</p></div>
+      <div class="review"><div class="head"><div class="avatar" style="background:#f6a609">О<img src="../../img/av/rvf1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ольга П.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Таллин · <span class="ago" data-i="2"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер позвонил за час, чтобы я успела доехать с работы домой. Очень корректно.»</p></div>
+      <div class="review"><div class="head"><div class="avatar" style="background:#e5484d">А<img src="../../img/av/rvm1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Андрей М.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Вильнюс · <span class="ago" data-i="3"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё было ровно так, как пообещали по телефону.»</p></div>
+      <div class="review"><div class="head"><div class="avatar" style="background:#7c3aed">Н<img src="../../img/av/rvf2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Наталья С.</div><div class="city">Юрмала · <span class="ago" data-i="4"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Обещали за два рабочих дня, получилось четыре. В остальном претензий нет: курьер заранее позвонил, коробка целая.»</p><div class="reply"><b>Ответ магазина</b>Приносим извинения за задержку, на той неделе у службы доставки была повышенная нагрузка.</div></div>
+      <div class="review"><div class="head"><div class="avatar" style="background:#0891b2">Д<img src="../../img/av/rvm2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Дмитрий Л.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Нарва · <span class="ago" data-i="5"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Удобно, что платишь только при получении. Открыл коробку при курьере, посмотрел и только потом рассчитался.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Е<img src="../../img/av/rvf3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Елена Г.</div><div class="city">Берлин · <span class="ago" data-i="6"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Посылка пришла даже раньше, чем я ожидала.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">А<img src="../../img/av/rvm3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Алексей Ш.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Клайпеда · <span class="ago" data-i="7"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Без лишних разговоров: оператор уточнил имя и адрес, и всё. Через два дня уже расписывался за получение.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Т<img src="../../img/av/rvf4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Татьяна Р.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Лимассол · <span class="ago" data-i="8"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Перезвонили только на следующее утро, хотя заявку я оставила ещё вечером. Сама доставка была быстрой, курьер вежливый.»</p><div class="reply"><b>Ответ магазина</b>Извините, заявка поступила уже после окончания рабочего дня колл-центра.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">В<img src="../../img/av/rvm4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Владимир Н.</div><div class="city">Прага · <span class="ago" data-i="9"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всегда сомневаюсь, когда заказываю в интернете, но тут всё честно: сначала посмотрел содержимое, потом заплатил.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">С<img src="../../img/av/rvf5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Светлана Д.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Мюнхен · <span class="ago" data-i="10"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Посылка приехала в целой упаковке, ничего не помято и не порвано.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">И<img src="../../img/av/rvm5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Игорь Б.</div><div class="city">Висагинас · <span class="ago" data-i="11"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Оставил заявку в пятницу вечером, а перезвонили только в понедельник утром. Понимаю, выходные, но рассчитывал побыстрее.»</p><div class="reply"><b>Ответ магазина</b>Извините, между заявкой и звонком выпали выходные, когда колл-центр не работает.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">М<img src="../../img/av/rvf6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Марина Е.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Кохтла-Ярве · <span class="ago" data-i="12"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оплатила курьеру картой, чек дали сразу.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Н<img src="../../img/av/rvm6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Николай Ф.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Гамбург · <span class="ago" data-i="13"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Цена показалась мне высоковатой, но доставка и обслуживание были без нареканий.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за отзыв, цену устанавливает производитель, мы её не меняем.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Ю<img src="../../img/av/rvf7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Юлия А.</div><div class="city">Пафос · <span class="ago" data-i="14"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Коробка была аккуратно заклеена скотчем, в дороге ничего не повредилось.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">П<img src="../../img/av/rvm7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Павел Т.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Карловы Вары · <span class="ago" data-i="15"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказ пришёл на третий день, курьер привёз прямо на работу, как я и просил.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Л<img src="../../img/av/rvf8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Людмила Ж.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Варна · <span class="ago" data-i="16"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Быстро, просто и без лишних вопросов.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">М<img src="../../img/av/rvm8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Михаил О.</div><div class="city">Дюссельдорф · <span class="ago" data-i="17"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Консультант говорил спокойно, по-русски, объяснил, сколько нужно заплатить, и ничего не навязывал.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Г<img src="../../img/av/rvf9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Галина У.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Бургас · <span class="ago" data-i="18"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Получила посылку у двери, заплатила наличными, всё заняло пять минут.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">В<img src="../../img/av/rvm9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Виктор З.</div><div class="city">Франкфурт · <span class="ago" data-i="19"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Сначала обещали до среды, привезли в пятницу. Правда, курьер утром позвонил и извинился, так что особых претензий нет.»</p><div class="reply"><b>Ответ магазина</b>Извините, в тот период у службы доставки было заметно больше отправлений, чем обычно.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">И<img src="../../img/av/rvf10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ирина С.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Таллин · <span class="ago" data-i="20"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Посылку за меня забирал муж, курьер разрешил открыть и посмотреть и только потом взял деньги.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">С<img src="../../img/av/rvm10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Сергей К.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Рига · <span class="ago" data-i="21"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Мама оформляла заказ за меня, и всё прошло без проблем: позвонили, согласовали, привезли.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">О<img src="../../img/av/rvf11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ольга Н.</div><div class="city">Вильнюс · <span class="ago" data-i="22"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«В среду оставила заявку, в четверг перезвонили, в субботу посылка уже была у меня.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">А<img src="../../img/av/rvm11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Андрей Г.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Нарва · <span class="ago" data-i="23"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Коробка небольшая и лёгкая, на ней всё понятно подписано.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Н<img src="../../img/av/rvf0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Наталья К.</div><div class="city">Даугавпилс · <span class="ago" data-i="24"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Ждала посылку в понедельник, а пришла она только в среду. Про само обслуживание плохого слова не скажу.»</p><div class="reply"><b>Ответ магазина</b>Жаль, что пришлось ждать на два дня дольше, на той неделе служба доставки была перегружена.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Д<img src="../../img/av/rvm0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Дмитрий В.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Юрмала · <span class="ago" data-i="25"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Доставили прямо до дома, и доплачивать за это ничего не пришлось.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Е<img src="../../img/av/rvf1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Елена М.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Клайпеда · <span class="ago" data-i="26"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Проверила посылку при курьере — всё совпало с тем, что заказывала.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">А<img src="../../img/av/rvm1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Алексей П.</div><div class="city">Лимассол · <span class="ago" data-i="27"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Честно говоря, рассчитывал на цену пониже. А вот оформление и доставка сработали чётко.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за мнение, цены устанавливает производитель, и мы на них не влияем.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Т<img src="../../img/av/rvf2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Татьяна Л.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Берлин · <span class="ago" data-i="28"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Открыла коробку прямо на пороге, убедилась, что всё на месте, и заплатила.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">В<img src="../../img/av/rvm2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Владимир С.</div><div class="city">Мюнхен · <span class="ago" data-i="29"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Позвонили уже через четверть часа, оператор вежливый и не навязчивый.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">С<img src="../../img/av/rvf3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Светлана К.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Прага · <span class="ago" data-i="30"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Звонка пришлось немного подождать: оформила вечером, перезвонили на следующее утро. Дальше всё прошло без сучка без задоринки.»</p><div class="reply"><b>Ответ магазина</b>Извините за задержку со звонком, в тот вечер заявок было очень много.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">И<img src="../../img/av/rvm3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Игорь Н.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Гамбург · <span class="ago" data-i="31"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Рассчитался картой, у курьера с собой был терминал.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">М<img src="../../img/av/rvf4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Марина В.</div><div class="city">Пафос · <span class="ago" data-i="32"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Два дня — и посылка уже в Пафосе. Не ожидала, что так быстро.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">Н<img src="../../img/av/rvm4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Николай Р.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Висагинас · <span class="ago" data-i="33"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Думал, будут какие-то доплаты, но нет: заплатил ровно ту сумму, которую назвали по телефону.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Ю<img src="../../img/av/rvf5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Юлия Б.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Кохтла-Ярве · <span class="ago" data-i="34"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Созвонились быстро, адрес записали правильно с первого раза.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">П<img src="../../img/av/rvm5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Павел Д.</div><div class="city">Варна · <span class="ago" data-i="35"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Первый раз заказывал что-то таким способом и был приятно удивлён, насколько всё продумано.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Л<img src="../../img/av/rvf6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Людмила К.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Карловы Вары · <span class="ago" data-i="36"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Немного задержали: обещали во вторник, привезли в четверг. Зато курьер был очень доброжелательный и дал всё спокойно проверить.»</p><div class="reply"><b>Ответ магазина</b>Приносим извинения за задержку, у службы доставки в тот момент был очень плотный график.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">М<img src="../../img/av/rvm6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Михаил С.</div><div class="city">Бургас · <span class="ago" data-i="37"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Спасибо консультанту за понятный разговор, всё объяснила по пунктам.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Г<img src="../../img/av/rvf7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Галина П.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Дюссельдорф · <span class="ago" data-i="38"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Приятно, что консультант говорила по-русски, всё поняла с первого раза.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">В<img src="../../img/av/rvm7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Виктор Л.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Франкфурт · <span class="ago" data-i="39"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Теперь знаю, что можно заказать без предоплаты, и это вызывает доверие.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">И<img src="../../img/av/rvf8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ирина В.</div><div class="city">Рига · <span class="ago" data-i="40"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Посылку забрала соседка, пока я была на работе, курьер согласился без лишних разговоров.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">С<img src="../../img/av/rvm8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Сергей Д.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Таллин · <span class="ago" data-i="41"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Наконец-то нормальный сервис: позвонили, предупредили, привезли и ничего не навязывали.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">О<img src="../../img/av/rvf9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ольга С.</div><div class="city">Рига · <span class="ago" data-i="42"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«В субботу оставила заявку, в понедельник перезвонили, во вторник получила. Быстрее и не надо.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">А<img src="../../img/av/rvm9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Андрей К.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Вильнюс · <span class="ago" data-i="43"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Сумма вышла чуть больше, чем я рассчитывал. Но сам заказ оформили удобно и быстро.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за честный отзыв, цены формирует производитель, мы отвечаем только за оформление и доставку.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Н<img src="../../img/av/rvf10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Наталья Б.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Нарва · <span class="ago" data-i="44"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оператор уточнила, в какое время мне удобнее, и курьер приехал именно тогда.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">Д<img src="../../img/av/rvm10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Дмитрий Ш.</div><div class="city">Даугавпилс · <span class="ago" data-i="45"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Без предоплаты — именно поэтому и решился заказать.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Е<img src="../../img/av/rvf11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Елена В.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Юрмала · <span class="ago" data-i="46"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Обещали три дня, по факту вышла почти неделя. Курьер извинился, посылка в порядке, поэтому три звезды.»</p><div class="reply"><b>Ответ магазина</b>Приносим извинения за задержку, между заказом и доставкой выпал праздничный день.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">А<img src="../../img/av/rvm11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Алексей Р.</div><div class="city">Клайпеда · <span class="ago" data-i="47"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Не верил, что до Клайпеды довезут так быстро, но уже на третий день посылка была у меня.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Т<img src="../../img/av/rvf0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Татьяна М.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Мюнхен · <span class="ago" data-i="48"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Очень приятно, что никто не названивал по десять раз с дополнительными предложениями.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">В<img src="../../img/av/rvm0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Владимир Ю.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Берлин · <span class="ago" data-i="49"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Оформили быстро, но посылка пришла на день позже, чем договаривались. Ничего страшного, просто немного подождал.»</p><div class="reply"><b>Ответ магазина</b>Извините за сдвиг на один день, в тот день на маршруте было очень много адресов.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">С<img src="../../img/av/rvf1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Светлана Ч.</div><div class="city">Лимассол · <span class="ago" data-i="50"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Посылку получал сын, курьер ему всё объяснил и выдал чек.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">И<img src="../../img/av/rvm1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Игорь Л.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Прага · <span class="ago" data-i="51"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«После звонка прошло два дня, и посылка уже была у меня.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">М<img src="../../img/av/rvf2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Марина С.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Гамбург · <span class="ago" data-i="52"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Привезли прямо до подъезда, никуда ехать не пришлось.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Н<img src="../../img/av/rvm2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Николай В.</div><div class="city">Пафос · <span class="ago" data-i="53"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Удобно, что можно было выбрать день доставки, мне больше всего подходила суббота.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Ю<img src="../../img/av/rvf3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Юлия Д.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Висагинас · <span class="ago" data-i="54"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Сумму назвали сразу, и при получении никаких доплат не потребовали.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">П<img src="../../img/av/rvm3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Павел К.</div><div class="city">Кохтла-Ярве · <span class="ago" data-i="55"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Ждал звонка в тот же день, а перезвонили только на следующий. Доставка, правда, была точно в срок.»</p><div class="reply"><b>Ответ магазина</b>Извините за задержку со звонком, заявка поступила к нам уже поздно вечером.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Л<img src="../../img/av/rvf4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Людмила Р.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Варна · <span class="ago" data-i="56"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Один день между звонком и доставкой — никогда бы не подумала.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">М<img src="../../img/av/rvm4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Михаил Б.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Карловы Вары · <span class="ago" data-i="57"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Когда курьер задерживался на полчаса, он сам позвонил и предупредил. Это заслуживает уважения.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Г<img src="../../img/av/rvf5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Галина М.</div><div class="city">Бургас · <span class="ago" data-i="58"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Дома был муж, он и расписался за получение, всё уже было подготовлено.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">В<img src="../../img/av/rvm5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Виктор Н.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Дюссельдорф · <span class="ago" data-i="59"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Живу не в самом центре, обычно всё идёт долго, а тут посылка была через четыре дня.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">И<img src="../../img/av/rvf6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ирина Л.</div><div class="city">Франкфурт · <span class="ago" data-i="60"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Сначала пришло СМС о доставке, потом позвонил курьер. Всё понятно и без сюрпризов.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">С<img src="../../img/av/rvm6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Сергей Н.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Рига · <span class="ago" data-i="61"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Привезли на следующий день после звонка, да ещё вечером, когда я был дома.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">О<img src="../../img/av/rvf7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Ольга Д.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Нарва · <span class="ago" data-i="62"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«В итоге вышло четыре дня, а не два, как обещали, поэтому минус звезда. Остальное в порядке: звонили, предупреждали, упаковка целая.»</p><div class="reply"><b>Ответ магазина</b>Нам очень жаль, что пришлось ждать дольше, посылка попала на выходные, и маршрут пришлось перенести.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">А<img src="../../img/av/rvm7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Андрей Ж.</div><div class="city">Таллин · <span class="ago" data-i="63"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«По телефону назвали точную сумму и день доставки, так всё и вышло.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Н<img src="../../img/av/rvf8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Наталья Р.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Вильнюс · <span class="ago" data-i="64"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер подъехал к моей работе, как договорились, оплатила и пошла дальше.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Д<img src="../../img/av/rvm8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Дмитрий К.</div><div class="city">Мюнхен · <span class="ago" data-i="65"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Претензия одна: посылка шла пять дней, а не два. Обслуживание и курьер хорошие.»</p><div class="reply"><b>Ответ магазина</b>Очень сожалеем о долгом ожидании, в тот момент у службы доставки был большой наплыв отправлений.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Е<img src="../../img/av/rvf9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Елена Ш.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Берлин · <span class="ago" data-i="66"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказываю здесь уже второй раз, потому что в первый всё было честно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">А<img src="../../img/av/rvm9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Алексей Н.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Гамбург · <span class="ago" data-i="67"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер точно назвал время и приехал минута в минуту, ждать не пришлось.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Т<img src="../../img/av/rvf10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Татьяна Б.</div><div class="city">Прага · <span class="ago" data-i="68"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Цена, на мой взгляд, высоковата. Но консультант всё подробно объяснил, и доставили быстро.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за отзыв, стоимость устанавливает производитель, мы отвечаем за оформление и доставку.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">В<img src="../../img/av/rvm10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Владимир К.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Лимассол · <span class="ago" data-i="69"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«В анкете указал только имя и телефон, остальное согласовали по звонку.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">С<img src="../../img/av/rvf11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Светлана Н.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Варна · <span class="ago" data-i="70"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Это уже мой третий заказ, и каждый раз всё одинаково чётко: звонок, курьер, оплата при получении.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">И<img src="../../img/av/rvm11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Игорь М.</div><div class="city">Рига · <span class="ago" data-i="71"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Работаю посменно, курьер без проблем перенёс доставку на следующий день.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Г<img src="../../img/av/rvm0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Геннадий Ш.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Оденсе · <span class="ago" data-i="72"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказ подтвердили быстро, доставили прямо домой через два дня. Всё чётко, рекомендую.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Н<img src="../../img/av/rvf0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Наталия Б.</div><div class="city">Юрмала · <span class="ago" data-i="73"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оператор позвонил в течение часа после заявки, помог выбрать удобное время доставки.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Я<img src="../../img/av/rvf1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Яна И.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Лиепая · <span class="ago" data-i="74"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер опоздал на 10 минут, но всё выдал без лишних вопросов. Оплата при получении, удобно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">В<img src="../../img/av/rvm1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Виталий С.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Прага · <span class="ago" data-i="75"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Сделал заказ вечером, на следующий день уже доставили. Всё оперативно и вежливо.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">М<img src="../../img/av/rvf2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Маргарита О.</div><div class="city">Тарту · <span class="ago" data-i="76"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Доставка заняла на день дольше, чем обещали. Оператор извинился, всё остальное понравилось.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за понимание, работаем над сокращением сроков доставки.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Р<img src="../../img/av/rvm2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Роберт Г.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Лейпциг · <span class="ago" data-i="77"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер заранее позвонил, всё согласовал и приехал без опозданий. Хороший сервис.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">И<img src="../../img/av/rvm3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Игорь В.</div><div class="city">Резекне · <span class="ago" data-i="78"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Понравилось, что не надо платить заранее. Удобно и надёжно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">С<img src="../../img/av/rvf3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Сильвия Н.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Бремен · <span class="ago" data-i="79"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Забирала заказ в пункте выдачи, всё быстро и без очередей.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Р<img src="../../img/av/rvm4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Роман Д.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Пльзень · <span class="ago" data-i="80"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Получил не сразу, пришлось ждать посылку почти неделю. В остальном всё нормально.»</p><div class="reply"><b>Ответ магазина</b>Просим прощения за длительную доставку, были задержки у службы доставки.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">Г<img src="../../img/av/rvf4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Галина Т.</div><div class="city">Вентспилс · <span class="ago" data-i="81"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Приятно удивила целая и аккуратная упаковка. Курьер вежливый, чек на месте.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">О<img src="../../img/av/rvm5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Олег М.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Дрезден · <span class="ago" data-i="82"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Заказ получил, но курьер не позвонил заранее, пришлось ждать дома. Всё остальное отлично.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за сигнал, передадим замечание службе доставки.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Д<img src="../../img/av/rvf5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Дарья Ж.</div><div class="city">Талси · <span class="ago" data-i="83"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оформила второй раз, как и в прошлый раз, всё быстро и без проблем.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">С<img src="../../img/av/rvm6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Сергей Ф.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Варнемюнде · <span class="ago" data-i="84"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Доставка ровно в срок, оператор приятный, рассказал все детали.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">А<img src="../../img/av/rvf6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Анна П.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Пярну · <span class="ago" data-i="85"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Мама забрала за меня, курьер подробно объяснил, как оплатить.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Д<img src="../../img/av/rvm7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Даниил К.</div><div class="city">Билефельд · <span class="ago" data-i="86"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Честная цена без скрытых доплат, оплата только при получении.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">А<img src="../../img/av/rvm8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Артём Л.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Елгава · <span class="ago" data-i="87"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Пункт выдачи рядом с домом, всё отдали сразу. Удобно для тех, кто не любит ждать курьера.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Е<img src="../../img/av/rvf7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Евгения У.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Бранденбург · <span class="ago" data-i="88"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Позвонили после оформления, всё вежливо и по делу. Доставили как обещали.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">М<img src="../../img/av/rvm9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Максим Я.</div><div class="city">Клайпеда · <span class="ago" data-i="89"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Понравилось, что можно посмотреть посылку перед оплатой.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">М<img src="../../img/av/rvf8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Марите Т.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Икшкиле · <span class="ago" data-i="90"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказала вечером — утром уже позвонили и уточнили адрес. Всё просто.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">А<img src="../../img/av/rvf9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Алина М.</div><div class="city">Верден · <span class="ago" data-i="91"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Доставили курьером на работу. Упаковка не повреждена, чек дали.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Р<img src="../../img/av/rvm10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Рихард Ж.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Купишкис · <span class="ago" data-i="92"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Родственник забрал за меня, проблем не возникло. Спасибо.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">В<img src="../../img/av/rvf10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Виктория С.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Кобленц · <span class="ago" data-i="93"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Никаких предоплат, всё как обещали по телефону. Всё устроило.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">А<img src="../../img/av/rvf11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Анастасия Р.</div><div class="city">Лимбажи · <span class="ago" data-i="94"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Ждала звонок чуть дольше обычного, но обслуживание хорошее, с оплатой не было сложностей.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за отзыв, усилим работу по ускорению обратной связи.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Н<img src="../../img/av/rvm11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Никита И.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Халле · <span class="ago" data-i="95"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер был пунктуален, позвонил за полчаса до приезда.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Е<img src="../../img/av/rvf0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Елизавета Г.</div><div class="city">Брно · <span class="ago" data-i="96"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Пакет выглядел немного помятым, но содержимое цело. В остальном сервис понравился.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за честный отзыв, учтём пожелания по упаковке.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Е<img src="../../img/av/rvf1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Екатерина Ю.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Кельн · <span class="ago" data-i="97"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё быстро, курьер вежливый, никаких лишних разговоров. Я довольна.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">А<img src="../../img/av/rvm0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Андрис Б.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Цесис · <span class="ago" data-i="98"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Воспользовался оплатой наличными, курьер всё оформил за минуту.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">А<img src="../../img/av/rvf2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Адель Ш.</div><div class="city">Лодзь · <span class="ago" data-i="99"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Доставили прямо на работу, до вечера не пришлось ждать.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Т<img src="../../img/av/rvf3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Татьяна Ц.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Лиепая · <span class="ago" data-i="100"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Пластиковая пломба на упаковке — видно, что никто не вскрывал.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">А<img src="../../img/av/rvm1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Александр Д.</div><div class="city">Шауляй · <span class="ago" data-i="101"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Звонил оператор, помог скорректировать адрес. Всё быстро и понятно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Л<img src="../../img/av/rvf4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Людмила К.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Сигулда · <span class="ago" data-i="102"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Быстро оформили, доставили не в самый центр — всё равно ровно по времени.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Р<img src="../../img/av/rvm2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Роман Э.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Виттенберг · <span class="ago" data-i="103"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказ пришёл быстро, коробка аккуратная, чек в комплекте.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">П<img src="../../img/av/rvm3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Павел Ж.</div><div class="city">Нарва · <span class="ago" data-i="104"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Очень удобно, что не требуется карта или предоплата.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">Ю<img src="../../img/av/rvf5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Юлия С.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Йыхви · <span class="ago" data-i="105"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Забрала заказ в пункте выдачи, всё заняло пару минут.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Д<img src="../../img/av/rvm4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Денис О.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Копенгаген · <span class="ago" data-i="106"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Позвонили, уточнили адрес, пришло всё вовремя.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">В<img src="../../img/av/rvm5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Валерий В.</div><div class="city">Рига · <span class="ago" data-i="107"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Чётко сработано: заявка, звонок, доставка, чек. Без проволочек.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">А<img src="../../img/av/rvf6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Александра Я.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Вупперталь · <span class="ago" data-i="108"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«На день задержалась доставка, но курьер быстро всё выдал и извинился.»</p><div class="reply"><b>Ответ магазина</b>Благодарим за отзыв и извиняемся за небольшой сдвиг по сроку.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">О<img src="../../img/av/rvf7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Олеся П.</div><div class="city">Таллин · <span class="ago" data-i="109"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё прошло как по маслу: от звонка до самой доставки. Спасибо!»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">Э<img src="../../img/av/rvf8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Эрика А.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Краков · <span class="ago" data-i="110"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Выбрала время — доставили ровно тогда, когда просила.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">К<img src="../../img/av/rvm6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Кирилл Г.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Люнебург · <span class="ago" data-i="111"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Не пришлось искать сдачу — оплата картой на месте, удобно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">В<img src="../../img/av/rvf9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Василиса К.</div><div class="city">Ческе-Будеёвице · <span class="ago" data-i="112"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер позвонил заранее, всё было чётко и понятно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">М<img src="../../img/av/rvm7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Матвей И.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Йесенице · <span class="ago" data-i="113"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Цены соответствуют заявленным на сайте, никаких сюрпризов.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">В<img src="../../img/av/rvf10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Виолетта Ф.</div><div class="city">Резекне · <span class="ago" data-i="114"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер был очень вежлив, упаковка не повреждена. Рекомендую.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Г<img src="../../img/av/rvm8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Георгий П.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Валмиера · <span class="ago" data-i="115"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Платил наличными, получил чек сразу после оплаты.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">А<img src="../../img/av/rvf11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Агнета Ч.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Рауна · <span class="ago" data-i="116"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Удобно получать посылки в пункте выдачи, не надо ждать курьера дома.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">В<img src="../../img/av/rvm9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Вячеслав К.</div><div class="city">Росток · <span class="ago" data-i="117"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Все пункты заказа выполнены: быстро, без предоплаты, без лишних вопросов.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Д<img src="../../img/av/rvf0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Даниэла Е.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Валка · <span class="ago" data-i="118"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Курьер заблудился на пару кварталов, но перезвонил и быстро нашёл адрес.»</p><div class="reply"><b>Ответ магазина</b>Извините за неудобство, обязательно отметим адрес для курьерской службы.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Э<img src="../../img/av/rvf1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Эльвира М.</div><div class="city">Огре · <span class="ago" data-i="119"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Доставили прямо ко двору, не пришлось куда-то ехать. Всё понравилось.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">З<img src="../../img/av/rvm10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Зигмунд Н.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Целе · <span class="ago" data-i="120"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оформил заказ впервые, всё прошло гладко и просто.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Т<img src="../../img/av/rvm11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Тимур Ф.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Острава · <span class="ago" data-i="121"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё быстро, курьер сам перезвонил, уточнил адрес и время.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">А<img src="../../img/av/rvf2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Анастасия Л.</div><div class="city">Вупперталь · <span class="ago" data-i="122"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё удобно, заказ оплатила при получении, никаких лишних действий.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">П<img src="../../img/av/rvf3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Полина В.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Пярну · <span class="ago" data-i="123"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Муж получил мою посылку, курьер попросил расписаться — удобно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">А<img src="../../img/av/rvm0.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Артём К.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Тршинец · <span class="ago" data-i="124"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Порадовала быстрая доставка без предоплаты. Спасибо!»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Ю<img src="../../img/av/rvm1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Юрий С.</div><div class="city">Таллин · <span class="ago" data-i="125"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Получил всё вовремя, без задержек. Курьер вежливый и пунктуальный.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">А<img src="../../img/av/rvf4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Алина Ж.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Бауцен · <span class="ago" data-i="126"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заказ забрал брат, никаких вопросов от курьера не возникло.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">М<img src="../../img/av/rvf5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Мария О.</div><div class="city">Вильнюс · <span class="ago" data-i="127"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оформила заявку ночью — утром оператор уже всё подтвердил.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">В<img src="../../img/av/rvm2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Вячеслав П.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Гамбург · <span class="ago" data-i="128"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Посылка плотно запечатана, всё пришло в полном порядке.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">А<img src="../../img/av/rvf6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Агнесса Х.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Пярну · <span class="ago" data-i="129"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всем довольна — оплата только по факту получения и без лишних доплат.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">И<img src="../../img/av/rvm3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Илья Б.</div><div class="city">Баньска-Бистрица · <span class="ago" data-i="130"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Ждал доставку четыре дня вместо обещанных двух, обращались в поддержку.»</p><div class="reply"><b>Ответ магазина</b>Приносим извинения за задержку, разберёмся с подрядчиком службы доставки.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Д<img src="../../img/av/rvm4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Дмитрий Ф.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Тукумс · <span class="ago" data-i="131"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Цена честная, платил наличными по факту получения. Так и должно быть.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Н<img src="../../img/av/rvf7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Наталия А.</div><div class="city">Кулдига · <span class="ago" data-i="132"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оператор сам перезвонил, уточнил детали, всё быстро и аккуратно.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">Л<img src="../../img/av/rvm5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Леонид Г.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Варшава · <span class="ago" data-i="133"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Курьер позвонил, уточнил адрес. Всё получил без проблем.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">М<img src="../../img/av/rvm6.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Михаил К.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Каунас · <span class="ago" data-i="134"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Заявку обработали быстро, доставка была точно в срок.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">Л<img src="../../img/av/rvf8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Луиза В.</div><div class="city">Тарту · <span class="ago" data-i="135"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Отмечаю отличную работу пункта самовывоза, всё чётко.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">Р<img src="../../img/av/rvf9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Рита Я.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Любек · <span class="ago" data-i="136"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё как обещали: быстрая доставка, целая упаковка, чек на месте.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Р<img src="../../img/av/rvm7.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Рудольф Э.</div><div class="city">Укмерге · <span class="ago" data-i="137"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Забрал посылку сам с пункта, всё очень удобно и быстро.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#1f6feb">Э<img src="../../img/av/rvm8.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Эдвард К.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Лиепая · <span class="ago" data-i="138"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Оплатил на месте по карте, курьер сразу выдал чек.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#12a150">А<img src="../../img/av/rvf10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Агата Д.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Йыхви · <span class="ago" data-i="139"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Курьер приехал с опозданием на час. Но с заказом всё ок.»</p><div class="reply"><b>Ответ магазина</b>Извините за задержку, будем стараться улучшить логистику.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#f6a609">О<img src="../../img/av/rvm9.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Олесь М.</div><div class="city">Таллин · <span class="ago" data-i="140"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★☆☆</div><p>«Ждал звонка два дня после заявки, только потом связались.»</p><div class="reply"><b>Ответ магазина</b>Приносим извинения за задержку связи, усилим работу отдела.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#e5484d">Б<img src="../../img/av/rvm10.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Богдан Ж.<svg class="src" viewBox="0 0 24 24"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ig)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.4" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#fff" stroke-width="1.5"/><circle cx="15.4" cy="8.7" r=".9" fill="#fff"/></svg></div><div class="city">Эльва · <span class="ago" data-i="141"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★☆</div><p>«Курьер не сразу нашёл подъезд, но потом позвонил и быстро доставил.»</p><div class="reply"><b>Ответ магазина</b>Спасибо за понимание, укажем примечания для курьера на будущее.</div></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#7c3aed">З<img src="../../img/av/rvf11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Злата Т.<svg class="src" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877f2"/><path d="M13.3 20v-6.2h2.1l.3-2.4h-2.4V9.8c0-.7.2-1.2 1.2-1.2h1.3V6.5c-.2 0-1-.1-1.9-.1-1.9 0-3.1 1.1-3.1 3.2v1.8H8.7v2.4h2.1V20z" fill="#fff"/></svg></div><div class="city">Клайпеда · <span class="ago" data-i="142"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Всё четко: заказ, звонок, доставка. Курьер с пониманием отнёсся, когда пришлось подождать 5 минут.»</p></div>
+      <div class="review hid"><div class="head"><div class="avatar" style="background:#0891b2">Т<img src="../../img/av/rvm11.jpg" alt="" loading="lazy" onerror="this.remove()"></div><div><div class="name">Тимофей Я.</div><div class="city">Дортмунд · <span class="ago" data-i="143"></span></div></div><span class="verified">✔ покупка подтверждена</span></div><div class="stars">★★★★★</div><p>«Не пришлось ехать в город — привезли прямо в пригород. Оплата по факту.»</p></div>
+    </div>
+    <button class="btn rv-more" id="rvMore" type="button">Показать больше отзывов</button>
+  </div>
+</section>
+<!--/REVIEWS-->
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="center">Частые вопросы</h2>
+    <div class="faq">
+      <div class="q open"><button>Можно ли купить Ocularix® дешевле в другом месте?<span class="chev">▾</span></button><div class="ans" style="max-height:400px"><div class="ans-inner">Этот сайт — единственное место прямых продаж. Предложения в других местах — это перепродажа или подделки: производитель не отвечает за их состав и качество.</div></div></div>
+      <div class="q"><button>Когда придёт посылка?<span class="chev">▾</span></button><div class="ans"><div class="ans-inner">Курьер обычно доставляет за 1–3 рабочих дня по всей стране. Дату консультант подтвердит по телефону.</div></div></div>
+      <div class="q"><button>Нужно ли платить заранее?<span class="chev">▾</span></button><div class="ans"><div class="ans-inner">Нет. Оплата только при получении — наличными или картой курьеру, после проверки посылки.</div></div></div>
+      <div class="q"><button>А если я передумаю?<span class="chev">▾</span></button><div class="ans"><div class="ans-inner">При получении вы можете отказаться от посылки без каких-либо расходов.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ORDER ============ -->
+<section class="section" id="order" style="padding-top:0">
+  <div class="wrap">
+    <div class="order">
+      <div class="order-grid">
+        <div>
+          <div class="eyebrow" style="color:#7fb0ff">Единственный официальный сайт производителя</div>
+          <h2>Закажите оригинальный Ocularix®</h2>
+          <p class="muted" style="font-size:14.5px">Заполните форму: консультант перезвонит в течение нескольких минут, чтобы подтвердить адрес и дату доставки. Без предоплаты.</p>
+          <div class="proof"><span><i>👥</i>Уже более 9 100 заказов в Европе</span><span><i>↻</i>87 % заказывают повторно</span></div>
+          <div class="price-box"><span class="price-new">5 €</span><span class="price-old">50 €</span><span class="save-badge disc">-50%</span></div>
+          <ul class="perks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Оплата только при получении</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Проверка до оплаты</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Конфиденциальная доставка</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Подтверждение по телефону</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <form class="order-form" autocomplete="on" novalidate>
+            <button type="button" class="howq" aria-expanded="false">Как заказать?<span class="chev">▾</span></button>
+            <ol class="steps4" hidden><li>Вы оставляете имя и номер телефона</li><li>Консультант перезванивает, чтобы согласовать адрес и время доставки; данные карты не нужны</li><li>Курьер привозит посылку за 1–3 дня</li><li>При получении вы проверяете посылку и платите курьеру</li></ol>
+            <input class="inp" type="text" name="name" placeholder="Имя и фамилия" autocomplete="name">
+            <div class="phone-field"><span class="p48">🇱🇹 +370</span><input class="inp" type="tel" name="phone" placeholder="20 123 456" inputmode="numeric" autocomplete="tel"></div>
+            <p class="ph-err">Введите корректный номер телефона</p>
+            <button type="button" class="ph-other" data-intl="+49 151 2345678">Номер другой страны?</button>
+            <p class="phonewhy">Номер нужен для звонка с подтверждением. Его получают только продавец, служба подтверждения заказов и курьер.</p>
+            <input type="hidden" name="kw" value="rueu-tl-ocularix-lt">
+            <button class="btn btn-primary btn-cta" type="submit">ЗАКАЗАТЬ ОРИГИНАЛ</button>
+            <p class="today-line">🛒 Сегодня уже заказали <b class="todayN">—</b> человек</p>
+            <p class="form-note">Без предоплаты · проверка при получении · 🔒 SSL-шифрование</p>
+          </form>
+          <div class="ok-msg"><div class="ok-big"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <b>Спасибо! Ваш заказ принят.</b><p class="ok-when"></p><p class="ok-keep">🔔 Держите телефон под рукой и ответьте на звонок.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-cta" id="stickyCta"><div class="p">5 €<small>50 €</small></div><a class="btn btn-primary" href="#buy" id="stickyBtn">ЗАКАЗАТЬ ОРИГИНАЛ</a></div>
+<footer>
+  <div class="wrap">
+    <div class="legal"><b>Прямые продажи производителя</b><br>Заказы обрабатывает официальная служба поддержки клиентов производителя. Персональные данные используются только для выполнения заказа.</div>
+    <div class="links"><a href="../../privacy.html">Конфиденциальность</a><a href="../../terms.html">Условия</a><a href="../../kontakt.html">Контакты</a></div>
+    <p class="disclaimer">© 2026 Ocularix®. Биологически активная добавка. Не заменяет разнообразное питание и здоровый образ жизни. Приведённые мнения — мнения покупателей.</p>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var WORKER='https://pilot-leads.bnsshub.workers.dev', KW='rueu-tl-ocularix-lt', KEYWORD='ocularix', BTN='ЗАКАЗАТЬ ОРИГИНАЛ';
+  if('-50%'==='') document.body.classList.add('free');
+  // 13.10: одна отправка на страницу — после успеха прячем ОБЕ формы, помним сутки в localStorage (повтор из второй формы/после перезагрузки давал 7% дублей)
+  var SENT_KEY='lp_sent_'+KW, sending=false;
+  function markSent(){ document.body.classList.add('sent');
+    Array.prototype.forEach.call(document.querySelectorAll('form.order-form'),function(f){ f.style.display='none'; });
+    Array.prototype.forEach.call(document.querySelectorAll('.ok-msg'),function(o){ o.style.display='block'; });
+    var st=document.getElementById('stickyCta'); if(st){ st.classList.remove('on'); st.classList.add('off'); }
+    try{ localStorage.setItem(SENT_KEY, String(Date.now())); }catch(e){} }
+  var qs=new URLSearchParams(location.search);
+  // click-id из трекера: основной параметр cid; запасные — субы сетей и gclid Google
+  var gclid='';['cid','sub5','sid5','sub_id_4','m','d5','subacc4','utm_content'].some(function(k){gclid=qs.get(k)||'';return !!gclid;});
+  var GCLID=qs.get('gclid')||'';   // метка Google Ads (автопометка) — уходит в ZTDS как параметр клика, cid-ом НЕ является
+  var CTYPE=qs.get('ctype')||'';   // 12.10: версия набора креативов из ссылки кампании (&ctype=BL1_HARD) — уходит в /hit и /lead, панель группирует по ней
+  // кеш cid: ztds_cid + ztds_src (gclid Ads, при котором cid выдан). Новый gclid ≠ сохранённого — старый cid не берём, идём за новым через /hit
+  // ctype хранится вместе с cid и подхватывается только вместе с ним (переход каталог → товар внутри того же клика)
+  function cidSave(){ try{ localStorage.setItem('ztds_cid',gclid); localStorage.setItem('ztds_src',GCLID); localStorage.setItem('ztds_ctype',CTYPE); }catch(e){} }
+  try{ if(gclid) cidSave(); else { var sc=localStorage.getItem('ztds_cid')||'', ss=localStorage.getItem('ztds_src')||''; if(sc&&(!GCLID||GCLID===ss)){ gclid=sc; if(!CTYPE) CTYPE=localStorage.getItem('ztds_ctype')||''; } } }catch(e){}
+  var hitP=null;   // ожидание cid от /hit — форма ждёт его до 1.5 с, чтобы лид ушёл с cid
+  try{ var hitBody=JSON.stringify({kw:KW,keyword:KEYWORD,gclid:gclid,ads_gclid:GCLID,ctype:CTYPE,ref:document.referrer,q:location.search,page:location.href});
+  if(gclid){ navigator.sendBeacon(WORKER+'/hit', hitBody); }
+  else { hitP=fetch(WORKER+'/hit',{method:'POST',headers:{'Content-Type':'application/json'},body:hitBody})
+    .then(function(r){return r.json();}).then(function(j){ if(j&&j.cid){ gclid=j.cid; cidSave(); } return gclid; }).catch(function(){ return ''; }); }
+}catch(e){}
+
+  function rnd(a,b){ return a+Math.floor(Math.random()*(b-a+1)); }
+
+  // --- таймер акции (сохраняется между перезагрузками в пределах сессии) ---
+  // таймер только при ПЕРВОМ визите на сайт (флаг на домен); при перезагрузке/другом товаре — плашка «цена закреплена»
+  var first=true; try{ first=!localStorage.getItem('lp_seen'); localStorage.setItem('lp_seen','1'); }catch(e){}
+  if(qs.get('reset')==='1'){ first=true; try{ localStorage.removeItem('lp_seen'); localStorage.removeItem(SENT_KEY); }catch(e){} }   // ?reset=1 — для проверки
+  // v4 (12.09): таймер убран — скидка «держится, пока страница открыта»; при повторном визите — блок «мы сохранили вам цену»
+  if(!first){ document.getElementById('scarcity').style.display='none'; document.getElementById('kept').style.display='flex'; }
+
+  // --- остаток партии: стартует 38–57, убывает рывками в случайные моменты, с «pop»-анимацией и всплывашкой ---
+  var stock=rnd(38,57), stockMax=60, sn=document.getElementById('stockNum'), sn2=document.getElementById('stockNum2'), sb=document.getElementById('stockBar');
+  try{ var st=+localStorage.getItem('lp_stock'); if(st>6&&st<stock) stock=st; }catch(e){}   // остаток не растёт при перезагрузке
+  function rs(){ sn.textContent=stock; sn2.textContent=stock; sb.style.width=Math.max(6,(stock/stockMax)*100)+'%'; try{ localStorage.setItem('lp_stock',stock); }catch(e){} }
+  rs();
+  var L={"cc": "+370", "phMin": 8, "phMax": 8, "ph0": true, "fem": "[ая]$", "t1m": "только что оформил заказ", "t1f": "только что оформила заказ", "t2m": "только что заказал 2 упаковки", "t2f": "только что заказала 2 упаковки", "agoMin": " мин. назад", "agoH": " ч. назад", "agoY": "вчера", "agoD": " дн. назад", "names": ["Сергей", "Ирина", "Андрей", "Ольга", "Дмитрий", "Елена", "Алексей", "Наталья", "Владимир", "Татьяна", "Игорь", "Светлана", "Николай", "Марина", "Виктор", "Людмила", "Павел", "Юлия", "Михаил", "Галина"], "cities": ["Рига", "Даугавпилс", "Юрмала", "Таллин", "Нарва", "Кохтла-Ярве", "Вильнюс", "Клайпеда", "Висагинас", "Берлин", "Мюнхен", "Гамбург", "Дюссельдорф", "Франкфурт", "Лимассол", "Пафос", "Прага", "Карловы Вары", "Варна", "Бургас"]};   // локаль тостов/дат/телефона (генерится сборкой из i18n)
+  var NAMES=L.names, CITIES=L.cities;
+  function drop(){
+    if(stock>6){
+      var d=Math.random()<.25?2:1; stock-=d; today+=d; rs(); rToday();
+      [sn,sn2].forEach(function(el){ el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); });
+    }
+    setTimeout(drop, rnd(18,55)*1000);
+  }
+  setTimeout(drop, rnd(7,14)*1000);
+
+
+  // --- FAQ ---
+  // «Как заказать?» — шаги заказа раскрываются по клику (17.09)
+  Array.prototype.forEach.call(document.querySelectorAll('.howq'),function(b){ b.addEventListener('click',function(){ var ol=b.nextElementSibling, o=b.getAttribute('aria-expanded')==='true'; b.setAttribute('aria-expanded',o?'false':'true'); if(ol) ol.hidden=o; }); });
+  document.querySelectorAll('.q button').forEach(function(btn){
+    btn.addEventListener('click',function(){ var q=btn.parentElement, a=q.querySelector('.ans');
+      if(q.classList.contains('open')){ q.classList.remove('open'); a.style.maxHeight=null; }
+      else { q.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px'; } });
+  });
+
+  // --- бумаги: клик открывает крупно ---
+  var lb=document.getElementById('certLb');
+  if(lb){ var big=lb.querySelector('.cert-big'), close=function(){ lb.hidden=true; big.innerHTML=''; };
+    Array.prototype.forEach.call(document.querySelectorAll('.certs .cert'),function(c){
+      c.addEventListener('click',function(){ big.innerHTML=''; var cl=c.cloneNode(true); cl.removeAttribute('data-i'); big.appendChild(cl); lb.hidden=false; }); });
+    lb.addEventListener('click',function(e){ if(e.target===lb||e.target.classList.contains('cert-x')) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!lb.hidden) close(); }); }
+
+  // --- отзывы: сначала 6, остальные по кнопке ---
+  var more=document.getElementById('rvMore'), MORE_TXT=more?more.textContent.trim():'';
+  if(more){
+    var showMore=function(){
+      var hid=Array.prototype.slice.call(document.querySelectorAll('.review.hid'),0,12);
+      hid.forEach(function(r){ r.classList.remove('hid'); });
+      var left=document.querySelectorAll('.review.hid').length;
+      if(left) more.textContent=MORE_TXT+' ('+left+')'; else more.style.display='none';
+    };
+    var left0=document.querySelectorAll('.review.hid').length;
+    if(!left0) more.style.display='none'; else more.textContent=MORE_TXT+' ('+left0+')';
+    more.addEventListener('click',showMore);
+  }
+
+  // --- отзывы: относительные даты (стабильные в рамках визита, свежие сверху)
+  var AGO=[14,42,96,180,260,420];   // первые шесть — свежие, дальше растёт плавно (отзывов теперь 72)
+  Array.prototype.forEach.call(document.querySelectorAll('.ago'),function(el){
+    var i=+el.getAttribute('data-i'), m=(i<AGO.length?AGO[i]:Math.round(600+i*i*3.2+i*180)), t;
+    var agoF=function(n,s){return s.indexOf('{n}')>=0?s.replace('{n}',n):n+s;};   // «vor {n} Min.» / «{n} min temu»
+    if(m<60) t=agoF(m,L.agoMin); else if(m<1440) t=agoF(Math.round(m/60),L.agoH);
+    else if(m<2880) t=L.agoY; else t=agoF(Math.round(m/1440),L.agoD);
+    el.textContent=t;
+  });
+
+  // --- «сегодня заказали N»: растёт по часам суток и подрастает вместе с убыванием остатка
+  // 13.10: «сегодня заказали» масштабируется от общего числа заказов гео (proof_n): ~1/300 в день, растёт к вечеру
+  var PROOF_N=+'9100'||0, todayBase=Math.max(25, Math.round(PROOF_N/300));
+  var today=Math.round(todayBase*(0.35+0.65*new Date().getHours()/23))+rnd(0,6);
+  function rToday(){ Array.prototype.forEach.call(document.querySelectorAll('.todayN'),function(el){ el.textContent=today; }); }
+  rToday();
+
+  // --- маска национального номера: код страны и допустимая длина берутся из локали (L.cc/L.phMin/L.phMax/L.ph0)
+  var CCD=L.cc.replace(/\D/g,'');
+  // --- RUEU: страна выбирается в форме — меняет код телефона, длину номера и цену (список стран подставляет сборка)
+  var CTY={"LT": {"cc": "+370", "phMin": 8, "phMax": 8, "ph0": true, "flag": "🇱🇹", "name": "Литва", "price": "5 €", "old": "50 €"}}, CTYSEL=null;
+  function setCountry(cc){ var c=CTY[cc]; if(!c) return; CTYSEL=cc; L.cc=c.cc; L.phMin=c.phMin; L.phMax=c.phMax; L.ph0=c.ph0; CCD=c.cc.replace(/\D/g,''); NAT_BADGE=c.flag+' '+c.cc; if(INTL) setIntl(false);
+    Array.prototype.forEach.call(document.querySelectorAll('.p48'),function(el){ el.textContent=c.flag+' '+c.cc; });
+    var lf=document.getElementById('logoFlag'); if(lf&&c.flag) lf.textContent=c.flag;
+    Array.prototype.forEach.call(document.querySelectorAll('.price-new'),function(el){ el.textContent=c.price; });
+    Array.prototype.forEach.call(document.querySelectorAll('.price-old'),function(el){ el.textContent=c.old; });
+    Array.prototype.forEach.call(document.querySelectorAll('.order .p'),function(el){ if(el.firstChild) el.firstChild.nodeValue=c.price+' '; });
+    Array.prototype.forEach.call(document.querySelectorAll('.save-abs'),function(el){ el.style.display='none'; });
+    var sp=document.querySelector('#stickyCta .p'); if(sp&&sp.firstChild){ sp.firstChild.nodeValue=c.price; var sm=sp.querySelector('small'); if(sm) sm.textContent=c.old||''; }
+    Array.prototype.forEach.call(document.querySelectorAll('select.cty'),function(el){ el.value=cc; });
+    try{ localStorage.setItem('lp_cty',cc); }catch(e){} }
+  if(Object.keys(CTY).length){ var cty0=null; try{ cty0=localStorage.getItem('lp_cty'); }catch(e){}
+    var qcc=(qs.get('cc')||'').toUpperCase(); setCountry(CTY[qcc]?qcc:(CTY[cty0]?cty0:Object.keys(CTY)[0]));
+    Array.prototype.forEach.call(document.querySelectorAll('select.cty'),function(el){ el.addEventListener('change',function(){ setCountry(el.value);
+      Array.prototype.forEach.call(document.querySelectorAll('input[name=phone]'),function(ph){ ph.value=''; }); }); }); }
+  // 14.10: проверка номера «чтобы не терять заказы». 1) Нормализация без потери цифр: 00+код, повторённый код страны («43 664…» при
+  // широком окне длины AT/DE/IT — только если дальше идёт мобильная цифра), междугородный префикс (0; у Венгрии 06, у России/Казахстана 8,
+  // у Беларуси 80) снимается лишь когда номер набран целиком, а до того держится в поле — раньше «0630 123 4567» в HU теряло последнюю
+  // цифру: 0 снимался сразу, 10-я цифра обрезалась маской. 2) Жёсткий стоп (phBad) только для мусора. 3) Мягкое предупреждение (phWarn,
+  // оранжевым, отправку не блокирует): начало номера не из плана нумерации страны или маска отрезала лишние цифры.
+  var TRUNK={'36':['06'],'7':['8'],'375':['80']};
+  var MOB1={'43':'6','49':'1','39':'3'};
+  var PLAN={'48':/^(45|5[0137]|6[069]|7[2389]|88|1[2-8]|2[2-59]|3[2-4]|4[1-468]|5[2-69]|6[1-358]|67|7[1456]|8[1-79]|9[145])/,
+    '36':/^(1|20|30|31|50|70|2[2-9]|3[2-7]|4[24-9]|5[2-4679]|6[23689]|7[2-9]|8[02-5789]|9[2-69])/,'359':/^[2-9]/,'385':/^([1-5]|9)/,
+    '386':/^([1-57]|6[4589])/,'381':/^([1-3]|6)/,'387':/^([3-5]|6)/,'420':/^[2-7]/,'421':/^([2-5]|9)/,'40':/^[237]/,'34':/^[6-9]/,'351':/^[29]/,
+    '30':/^(2|69)/,'39':/^[03]/,'49':/^([2-9]|1[5-7])/,'43':/^[1-7]/,'33':/^[1-79]/,'370':/^[3-6]/,'371':/^[26]/,'372':/^([34567]|8[1-3])/,
+    '357':/^[29]/,'382':/^[2-46]/,'66':/^[2-9]/,'63':/^[2-9]/,'62':/^[2-8]/,'52':/^[2-9]/,'57':/^(3|60)/,'225':/^(0[157]|2[157])/,'90':/^[2-5]/,
+    '7':/^[3489]/,'375':/^[1-4]/,'380':/^[3-9]/};
+  // --- PHONE-LOGIC-START (02.11: «номер другой страны» — режим INTL: любой номер с кодом страны, 7–15 цифр, уходит как «+цифры»;
+  // лимиты AT 7 / DE 8 / TH 8 / PH 9 / RS до 10 — городские номера возрастной аудитории; маячок /phfail на заблокированную или обрезанную отправку)
+  var INTL=false, PH_CUT=false;
+  function intlDigits(v){ var x=v.replace(/\D/g,''); if(x.slice(0,2)==='00') x=x.slice(2); PH_CUT=x.length>15; return x.slice(0,15); }
+  function phDigits(v){ if(INTL) return intlDigits(v); var d=v.replace(/\D/g,''); PH_CUT=false;
+    if(d.slice(0,2+CCD.length)==='00'+CCD) d=d.slice(2+CCD.length);
+    if(d.slice(0,CCD.length)===CCD){ var rest=d.slice(CCD.length);
+      if(d.length>L.phMax || (rest.length>=Math.max(9,L.phMin) && (!MOB1[CCD]||rest[0]===MOB1[CCD]))) d=rest; }
+    var tr=TRUNK[CCD]||[], keep=0;
+    for(var i=0;i<tr.length;i++){ var t=tr[i];
+      if(d.length<t.length ? t.slice(0,d.length)===d : d.slice(0,t.length)===t){ if(d.length-t.length>=L.phMin) d=d.slice(t.length); else keep=t.length; break; } }
+    if(CCD==='36'&&d[0]==='6'&&d.length>=10) d=d.slice(1);   // венгры пишут «6 30 123 4567» вместо «06 30 …»: с 6 номера в HU не начинаются
+    if(!keep&&L.ph0&&d[0]==='0') d=d.slice(1);
+    if(d.length>L.phMax+keep) PH_CUT=true;
+    return d.slice(0,L.phMax+keep); }
+  function phWarn(d){ if(INTL) return PH_CUT || d[0]==='0'; var p=PLAN[CCD]; if(CCD==='36'&&d.length>=8){ var m=/^(20|30|31|50|70)/.test(d); if((d.length===9)!==m) return true; }   // HU: 9 цифр только у мобильных 20/30/31/50/70, у стационарных 8
+    return PH_CUT || SEQ6.test(d) || (!!p && d.length>=L.phMin && !p.test(d)); }
+  // группы по 3, но последняя не должна быть из одной цифры («664 123 456 7» → «664 123 4567»)
+  function phFmt(d){ if(INTL) return d?'+'+(d.match(/\d{1,3}/g)||[]).join(' '):''; var g=d.match(/\d{1,3}/g)||[]; if(g.length>1&&g[g.length-1].length===1){ g[g.length-2]+=g.pop(); } return g.join(' '); }
+  var SEQ7=/(0123456|1234567|2345678|3456789|4567890|9876543|8765432|7654321|6543210)/, SEQ6=/(012345|123456|234567|345678|456789|567890|987654|876543|765432|654321|543210)/;
+  function phBad(d){ return d.length<(INTL?7:L.phMin) || (INTL&&d[0]==='0') || /^(\d)\1+$/.test(d) || SEQ7.test(d); }   // жёстко: коротко, одна цифра, 7+ подряд
+  // чужой код, набранный с «+»/«00» (на AT-странице «+49…»), сам включает INTL; свой код («+43…») по-прежнему снимает маска
+  function foreignCode(v){ if(!/^\s*(\+|00)/.test(v)) return false; var x=v.replace(/\D/g,''); if(x.slice(0,2)==='00') x=x.slice(2); return x.length>0 && x.slice(0,CCD.length)!==CCD && CCD.indexOf(x)!==0; }
+  function phFail(reason,d){ try{ var b=JSON.stringify({kw:KW,reason:reason,len:d.length,first2:d.slice(0,2),intl:INTL?1:0,cc:L.cc}); if(navigator.sendBeacon) navigator.sendBeacon(WORKER+'/phfail',new Blob([b],{type:'text/plain'})); else fetch(WORKER+'/phfail',{method:'POST',headers:{'Content-Type':'text/plain'},body:b,keepalive:true}); }catch(e){} }
+  // 02.11: цифр больше, чем бывает в стране (маска обрезала бы), начало — код страны из нашего круга (Европа, СНГ, LATAM, ЮВА, США) и без ведущего 0 → это чужой номер без «+»: INTL, не резать
+  var DIAL=/^(1|7|2(0|7|1[236]|2[15]|34|54)|3[0-46-9]|4[13-9]|5[1-8]|6[0-6]|8[1246]|9[0-2]|35[1-9]|37[0-8]|38[0-9]|42[013]|593|96[6]|97[12])/;
+  function looksIntl(v){ var x=v.replace(/\D/g,''); if(x.slice(0,2)==='00') x=x.slice(2); return x.length>=10 && x.length<=15 && x[0]!=='0' && DIAL.test(x) && x.slice(0,CCD.length)!==CCD; }
+  // --- PHONE-LOGIC-END
+  var NAT_BADGE=NAT_BADGE||((document.querySelector('.p48')||{}).textContent||'').trim(), OTHER_BTN=document.querySelector('.ph-other'), OTHER_TXT=OTHER_BTN?OTHER_BTN.textContent:'', INTL_PH=OTHER_BTN?(OTHER_BTN.getAttribute('data-intl')||''):'', NAT_PH=((document.querySelector('input[name=phone]')||{}).placeholder||'');
+  function setIntl(on,focusEl){ INTL=!!on;
+    Array.prototype.forEach.call(document.querySelectorAll('.p48'),function(el){ el.textContent=INTL?'🌍':NAT_BADGE; });
+    Array.prototype.forEach.call(document.querySelectorAll('.ph-other'),function(el){ el.textContent=INTL?'↩ '+NAT_BADGE:OTHER_TXT; el.classList.toggle('on',INTL); });
+    Array.prototype.forEach.call(document.querySelectorAll('input[name=phone]'),function(ph){ ph.value=''; ph.placeholder=INTL?INTL_PH:NAT_PH; ph.setAttribute('inputmode',INTL?'tel':'numeric'); ph.classList.remove('bad'); var fld=ph.closest('.phone-field'); fld.classList.remove('bad'); fld.classList.remove('warn'); });
+    if(focusEl) focusEl.focus(); }
+  Array.prototype.forEach.call(document.querySelectorAll('.ph-other'),function(b){ b.addEventListener('click',function(){ setIntl(!INTL,b.parentNode.querySelector('input[name=phone]')); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name=phone]'), function(ph){
+    ph.addEventListener('input', function(){ if(!INTL&&foreignCode(ph.value)){ var keep=ph.value; setIntl(true); ph.value=keep; } var d=phDigits(ph.value); if(!INTL&&PH_CUT&&looksIntl(ph.value)){ var k2=ph.value; setIntl(true); ph.value=k2; d=phDigits(ph.value); } ph.value=phFmt(d); var fld=ph.closest('.phone-field'); fld.classList.remove('bad'); ph.classList.remove('bad'); fld.classList.toggle('warn',phWarn(d)); });
+  });
+
+  // --- «спасибо»: днём обещаем звонок ~15 минут, ночью (21:00–8:00) — завтра с 8:00 (?hour=N — для проверки)
+  var hh=qs.get('hour')!==null?+qs.get('hour'):new Date().getHours();
+  var whenTxt=(hh>=8&&hh<21)?'Обычно консультант перезванивает с местного номера в течение 15 минут, чтобы подтвердить заказ.':'Консультант перезвонит завтра после 8:00, чтобы подтвердить заказ.';
+  Array.prototype.forEach.call(document.querySelectorAll('.ok-when'),function(el){ el.textContent=whenTxt; });
+
+  // --- формы → воркер (одна страница = одна сеть, маршрут по KW) ---
+  Array.prototype.forEach.call(document.querySelectorAll('form.order-form'), function(f){
+    var nmF=f.querySelector('[name=name]'), phF=f.querySelector('[name=phone]');
+    nmF.addEventListener('blur', function(){ if(nmF.value.trim()) nmF.classList.toggle('bad', nmF.value.trim().length<2); });
+    phF.addEventListener('blur', function(){ if(phF.value.trim()){ var bad=phBad(phDigits(phF.value)); phF.classList.toggle('bad',bad); phF.closest('.phone-field').classList.toggle('bad',bad); } });
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var nm=f.querySelector('[name=name]'), ph=f.querySelector('[name=phone]'), btn=f.querySelector('button'), ok=f.parentNode.querySelector('.ok-msg');
+      var dg=phDigits(ph.value), cut=PH_CUT;
+      var badN=nm.value.trim().length<2, badP=phBad(dg);
+      nm.classList.toggle('bad',badN); ph.classList.toggle('bad',badP);
+      ph.closest('.phone-field').classList.toggle('bad',badP);
+      if(badN||badP){ if(badP) phFail(dg.length<(INTL?7:L.phMin)?'short':(INTL&&dg[0]==='0'?'zero':'junk'),dg); (badN?nm:ph).focus(); return; }
+      if(cut) phFail('cut',dg);   // маска отрезала лишние цифры — лид уходит, но длина/начало пишутся: мера «иностранных» номеров без INTL
+      if(sending) return; sending=true;
+      btn.disabled=true; btn.textContent='Отправляем…';
+      var d={kw:KW,page:location.href,name:nm.value.trim(),phone:INTL?'+'+dg:L.cc+' '+phFmt(dg),ctype:CTYPE};
+      if(CTYSEL) d.country=CTYSEL;
+      function send(){ d.gclid=gclid;
+        fetch(WORKER+'/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+          .then(function(r){return r.json();})
+          .then(function(){ markSent(); })
+          .catch(function(){ sending=false; btn.disabled=false; btn.textContent=BTN; alert('Ошибка соединения. Попробуйте ещё раз.'); }); }
+      if(!gclid&&hitP){ Promise.race([hitP,new Promise(function(r){setTimeout(r,3000);})]).then(send,send); } else send();   // 13.10: ждём cid до 3 с (было 1.5 — 44 лида из 1174 уходили без cid)
+    });
+  });
+
+  // 13.10: лид с этой страницы уже уходил менее суток назад — сразу показываем «спасибо», форму не даём (воркер такой повтор всё равно не отправит)
+  try{ var sentAt=+localStorage.getItem(SENT_KEY)||0; if(sentAt&&Date.now()-sentAt<86400000) markSent(); }catch(e){}
+
+  // 13.10: липкая кнопка (только телефон, см. CSS) — видна, когда ни одна форма не на экране; ведёт к форме в шапке
+  var sticky=document.getElementById('stickyCta'), cards=Array.prototype.slice.call(document.querySelectorAll('.form-card'));
+  if(sticky&&cards.length&&'IntersectionObserver' in window&&!document.body.classList.contains('sent')){
+    var visible={}; var io=new IntersectionObserver(function(ens){ ens.forEach(function(en){ visible[cards.indexOf(en.target)]=en.isIntersecting; });
+      var any=cards.some(function(c,i){ return visible[i]; }); sticky.classList.toggle('on', !any&&!document.body.classList.contains('sent')); },{threshold:0.1});
+    cards.forEach(function(c){ io.observe(c); });
+    sticky.querySelector('a').addEventListener('click',function(ev){ ev.preventDefault(); cards[0].scrollIntoView({behavior:'smooth',block:'center'});
+      setTimeout(function(){ var i=cards[0].querySelector('[name=name]'); if(i) try{ i.focus({preventScroll:true}); }catch(e){} },600); });
+  }
+})();
+</script>
+</body>
+</html>
